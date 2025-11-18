@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yejin Chen</title>
+  <meta name="description" content="Personal academic homepage" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f6f6f6;
+      --text: #222222;
+      --muted: #666666;
+      --accent: #0066cc;
+      --accent-soft: rgba(0, 102, 204, 0.06);
+      --border: #e0e0e0;
+      --max-width: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      gap: 12px 24px;
+    }
+
+    .title-block h1 {
+      margin: 0 0 4px;
+      font-size: 1.9rem;
+      font-weight: 600;
+    }
+
+    .title-block .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .contact-block {
+      font-size: 0.95rem;
+      text-align: right;
+      min-width: 220px;
+    }
+
+    .contact-block div {
+      white-space: nowrap;
+    }
+
+    nav {
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      margin-right: 12px;
+      padding: 3px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover {
+      border-color: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    main section {
+      margin-bottom: 26px;
+      padding: 14px 16px 16px;
+      border-radius: 6px;
+    }
+
+    main section:nth-child(odd) {
+      background: var(--bg-alt);
+    }
+
+    main section:nth-child(even) {
+      background: #ffffff;
+      border: 1px solid var(--border);
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 8px;
+    }
+
+    .about-text {
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .about-text strong {
+      font-weight: 600;
+    }
+
+    .news-list,
+    .list-flat {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 0.95rem;
+    }
+
+    .news-list li + li {
+      margin-top: 4px;
+    }
+
+    .section-note {
+      margin-top: 8px;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .pub-year {
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    .pub-item {
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .pub-title {
+      font-weight: 600;
+    }
+
+    .pub-venue {
+      font-style: italic;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 1px 6px;
+      margin-left: 4px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      vertical-align: middle;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-block {
+        text-align: left;
+      }
+
+      nav {
+        margin-top: 4px;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="title-block">
+        <h1>Your Name</h1>
+        <p class="subtitle">Your Title / Position · Your Institution / Company</p>
+      </div>
+      <div class="contact-block">
+        <div>Email: <a href="mailto:you@example.com">you@example.com</a></div>
+        <div>GitHub: <a href="https://github.com/yejinchen-ai" target="_blank">your-github</a></div>
+        <div>X (Twitter): <a href="https://x.com/yejinwise" target="_blank">@your-handle</a></div>
+        <div>微信: yejinwise</div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#products">Products</a>
+        <a href="#publications">Publications</a>
+        <a href="#patents">Patents</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>About</h2>
+        <p class="about-text">
+          Hi, I am <strong>Yejin Chen</strong>, currently a <strong>Algorithm Architect</strong> at <strong>Wise Vision</strong>.
+          My main research interests include <strong>Multimodality, Video Generation, World Model, Recommendation System</strong> I received my Master's degree from Nanyang Technological University in 2015, advised by Prof. Goh WangLing.
+        </p>
+      </section>
+
+      <section id="news">
+        <h2>News</h2>
+        <ul class="news-list">
+          <li>2025 – One short sentence about a recent talk, award, or new paper.</li>
+          <li>2024 – Another highlight, such as serving as Area Chair or organizing a workshop.</li>
+          <li>2023 – A notable product launch or best paper award.</li>
+          <li>Feel free to add more bullet points in reverse chronological order.</li>
+        </ul>
+      </section>
+
+      <section id="products">
+        <h2>Products</h2>
+        <ul class="list-flat">
+          <li>2024 – Briefly describe important product features you helped launch.</li>
+          <li>2018–2023 – Summarize earlier product launches or tech transfers.</li>
+        </ul>
+        <div class="section-note">
+          You can summarize the number of feature launches per year here, similar to the "Products" section on
+          <a href="https://jianwang-cmu.github.io/" target="_blank">Jian Wang's site</a>.
+        </div>
+      </section>
+
+      <section id="publications">
+        <h2>Publications</h2>
+        <p class="section-note">
+          Use this section to list your representative publications by year. You can manually edit this HTML or generate it from BibTeX.
+        </p>
+
+        <div class="pub-year">2025</div>
+        <div class="pub-item">
+          <span class="pub-title">Example Paper Title: Your Research Topic</span><br />
+          Author A, Author B, <strong>Your Name</strong><br />
+          <span class="pub-venue">Conference / Journal, 2025</span>
+          <span class="tag">paper</span>
+          <!-- Add links like [paper] [code] [video] if available -->
+        </div>
+
+        <div class="pub-year">2024</div>
+        <div class="pub-item">
+          <span class="pub-title">Another Example Paper</span><br />
+          Author A, <strong>Your Name</strong>, Author C<br />
+          <span class="pub-venue">Conference, 2024</span>
+          <span class="tag">paper</span>
+          <span class="tag">code</span>
+        </div>
+
+        <div class="pub-year">Before 2024</div>
+        <div class="pub-item">
+          Add more entries here following the same format, grouped by year.
+        </div>
+      </section>
+
+      <section id="patents">
+        <h2>Patents</h2>
+        <ul class="list-flat">
+          <li>
+            <strong>Patent Title Example</strong> – Your Name, Co-author 1, Co-author 2, Year.
+            <span class="tag">US patent</span>
+          </li>
+          <li>
+            <strong>Another Patent</strong> – Your Name, Co-author, Year.
+            <span class="tag">CN patent</span>
+          </li>
+        </ul>
+      </section>
+
+      <p class="footer-note">
+        Last updated on Month Year. This page is inspired by
+        <a href="https://jianwang-cmu.github.io/" target="_blank">Jian Wang's homepage</a>.
+      </p>
+    </main>
+  </div>
+</body>
+</html>
+
+

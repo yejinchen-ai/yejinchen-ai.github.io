@@ -1,351 +1,239 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yejin Chen</title>
-  <meta name="description" content="Yejin Chen - Personal academic homepage / 个人学术主页" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yejin Chen - Homepage</title>
+  <meta name="description" content="Yejin Chen - Algorithm Architect at 58.com / Wise Vision. Multimodality, Video Generation, Spatial Intelligence." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
-    :root {
-      --bg: #ffffff;
-      --bg-alt: #f6f6f6;
-      --text: #222222;
-      --muted: #666666;
-      --accent: #0066cc;
-      --accent-soft: rgba(0, 102, 204, 0.06);
-      --border: #e0e0e0;
-      --max-width: 960px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-      color: var(--text);
-      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #333;
       line-height: 1.6;
     }
-
+    h1, h2, h3 {
+      font-weight: 600;
+      color: #111;
+    }
     a {
-      color: var(--accent);
+      color: #0066cc;
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
     }
-
-    .page {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 24px 16px 40px;
+    .section-title {
+      font-size: 1.5rem;
+      border-bottom: 2px solid #eaeaea;
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+      margin-top: 48px;
     }
-
-    header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 16px;
-      margin-bottom: 20px;
-      gap: 12px 24px;
-    }
-
-    .title-block h1 {
-      margin: 0 0 4px;
-      font-size: 1.9rem;
-      font-weight: 600;
-    }
-
-    .title-block .subtitle {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .contact-block {
-      font-size: 0.95rem;
-      text-align: right;
-      min-width: 220px;
-    }
-
-    .contact-block div {
-      white-space: nowrap;
-    }
-
-    nav {
-      margin-top: 8px;
-      font-size: 0.95rem;
-    }
-
-    nav a {
-      margin-right: 12px;
-      padding: 3px 0;
-      border-bottom: 2px solid transparent;
-    }
-
-    nav a:hover {
-      border-color: var(--accent-soft);
-      text-decoration: none;
-    }
-
-    main section {
-      margin-bottom: 26px;
-      padding: 14px 16px 16px;
-      border-radius: 6px;
-    }
-
-    main section:nth-child(odd) {
-      background: var(--bg-alt);
-    }
-
-    main section:nth-child(even) {
-      background: #ffffff;
-      border: 1px solid var(--border);
-    }
-
-    h2 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 1.3rem;
-      border-left: 4px solid var(--accent);
-      padding-left: 8px;
-    }
-
-    .about-text {
-      margin: 0;
-      font-size: 0.98rem;
-    }
-
-    .about-text strong {
-      font-weight: 600;
-    }
-
-    .news-list,
-    .list-flat {
-      margin: 0;
-      padding-left: 18px;
-      font-size: 0.95rem;
-    }
-
-    .news-list li + li {
-      margin-top: 4px;
-    }
-
-    .section-note {
-      margin-top: 8px;
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .pub-year {
-      margin-top: 10px;
-      margin-bottom: 4px;
-      font-weight: 600;
-      font-size: 0.96rem;
-    }
-
-    .pub-item {
-      margin-bottom: 6px;
-      font-size: 0.95rem;
-    }
-
-    .pub-title {
-      font-weight: 600;
-    }
-
-    .pub-venue {
-      font-style: italic;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 1px 6px;
-      margin-left: 4px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.75rem;
-      vertical-align: middle;
-    }
-
-    .footer-note {
-      margin-top: 18px;
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-align: right;
-    }
-
-    @media (max-width: 640px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .contact-block {
-        text-align: left;
-      }
-
-      nav {
-        margin-top: 4px;
-        flex-wrap: wrap;
-      }
+    .pub-img {
+      width: 100%;
+      max-width: 160px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
     }
   </style>
 </head>
-<body>
-  <div class="page">
-    <header>
-      <div class="title-block">
-        <h1>Yejin Chen</h1>
-        <p class="subtitle">
-          算法架构师 · 58同城 / Wise Vision
-        </p>
+<body class="bg-white">
+
+  <div class="max-w-[900px] mx-auto px-6 py-12">
+    <!-- Header Section -->
+    <header class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
+      <div class="shrink-0">
+        <!-- Using GitHub avatar as default placeholder for a professional photo -->
+        <img src="https://github.com/yejinchen-ai.png" alt="Yejin Chen" class="w-40 h-40 rounded-full object-cover shadow-sm border border-gray-200">
       </div>
-      <div class="contact-block">
-        <div>Email / 邮箱: <a href="mailto:yejin@wisevision.com">yejin@wisevision.com</a></div>
-        <div>GitHub: <a href="https://github.com/yejinchen-ai" target="_blank">yejinchen-ai</a></div>
-        <div>X (Twitter): <a href="https://x.com/yejinwise" target="_blank">@yejinwise</a></div>
-        <div>微信 / WeChat: yejinwise</div>
-        <div>Tel: 17896028925</div>
+      <div class="flex-1 text-center md:text-left pt-2">
+        <h1 class="text-[32px] font-bold mb-1">Yejin Chen (陈烨锦)</h1>
+        <p class="text-[17px] text-gray-700 mb-4 font-medium">Algorithm Architect @ 58.com / Wise Vision</p>
+        
+        <div class="flex flex-col md:flex-row gap-2 md:gap-6 text-[15px] text-gray-600 justify-center md:justify-start">
+          <span class="flex items-center gap-2 justify-center"><i class="fa-solid fa-envelope w-4 text-gray-400"></i> <a href="mailto:yejin@wisevision.com">yejin@wisevision.com</a></span>
+          <span class="flex items-center gap-2 justify-center"><i class="fa-solid fa-phone w-4 text-gray-400"></i> +86 17896028925</span>
+        </div>
+        <div class="flex flex-col md:flex-row gap-2 md:gap-6 text-[15px] text-gray-600 justify-center md:justify-start mt-2">
+          <span class="flex items-center gap-2 justify-center"><i class="fa-brands fa-weixin w-4 text-gray-400"></i> yejinwise</span>
+          <a href="https://github.com/yejinchen-ai" target="_blank" class="flex items-center gap-2 justify-center"><i class="fa-brands fa-github w-4 text-gray-400"></i> yejinchen-ai</a>
+        </div>
       </div>
-      <nav>
-        <a href="#about">About / 关于我</a>
-        <a href="#experience">Experience / 经历</a>
-        <a href="#news">News / 新闻</a>
-        <a href="#products">Products / 产品</a>
-        <a href="#publications">Publications / 论文</a>
-        <a href="#patents">Patents / 专利</a>
-      </nav>
     </header>
 
-    <main>
-      <section id="about">
-        <h2>About / 关于我</h2>
-        <p class="about-text">
-          <strong>EN</strong> · Hi, I am <strong>Yejin Chen</strong>, currently an <strong>Algorithm Architect</strong> at <strong>58.com</strong> / <strong>Wise Vision</strong>. 
-          With over 10 years of R&D experience in AI algorithms, my main research interests include <strong>Multimodality, Video Generation, Spatial Intelligence, and Recommendation Systems</strong>. 
-          I have led the research and optimization of AI algorithms across multiple platforms, including Douyin (ByteDance) and Gumtree. 
-          I received my Master's degree in Pattern Recognition from <strong>Nanyang Technological University (NTU)</strong> in 2014.
-        </p>
-        <p class="about-text">
-          <strong>中文</strong> · 我是 <strong>陈烨锦</strong>，目前担任 <strong>58同城</strong> / <strong>Wise Vision</strong> 的 <strong>算法架构师</strong>。
-          我拥有 10 余年 AI 算法研发经验，专注于 <strong>多模态表征建模、视频生成、空间智能与推荐系统</strong> 的应用落地。
-          我曾主导过 Gumtree、抖音直播等多个亿级平台的 AI 算法落地与营收优化，并在 2017 年 ImageNet 竞赛中获得 VID 组全球第三。
-          我于 2014 年在 <strong>新加坡南洋理工大学 (NTU)</strong> 获得模式识别硕士学位。
-        </p>
-      </section>
-
-      
-      <section id="experience">
-        <h2>Experience / 工作经历</h2>
-        <ul class="news-list">
-          <li><strong>[2024.4 - Present] Algorithm Architect</strong> @ 58.com (Beijing). Leading AI algorithm applications for overseas business (Gumtree.com), focusing on multimodal representation modeling and recommendation systems.</li>
-          <li><strong>[2020.9 - 2023.11] Senior Algorithm Engineer</strong> @ ByteDance (Beijing). Optimized Douyin Live recommendation ecology using multimodal content understanding. Awarded "Beyond Expectation Contribution" by IES department in 2021.</li>
-          <li><strong>[2018.11 - 2020.9] AI Algorithm Manager</strong> @ Airdoc (Beijing). Developed medical AI imaging frameworks and end/cloud inference.</li>
-          <li><strong>[2016.10 - 2018.11] Deep Learning R&D Engineer</strong> @ Goertek (Beijing). Developed visual frameworks for industrial defect detection. Won 3rd place in ImageNet ILSVRC2017 VID track.</li>
-          <li><strong>[2014.10 - 2016.10] Research Associate</strong> @ Rolls-Royce Corporate Lab at NTU (Singapore). Researched multi-sensor multimodal data for real-time engine fault prediction.</li>
-        </ul>
-      </section>
-
-      <section id="news">
-        <h2>News / 新闻动态</h2>
-        <ul class="news-list">
-          <li>
-            2025 – Add a recent highlight here, e.g., a talk, award, or a new paper acceptance. /
-            2025 年 – 在这里填写你最近的重要动态，例如受邀报告、获奖或新论文接收。
-          </li>
-          <li>
-            2024 – Example: Serving as a PC/AC member or leading a key project. /
-            2024 年 – 示例：担任程序委员 / Area Chair，或主导了某个重要项目。
-          </li>
-          <li>
-            2023 – Example: Major product launch or impactful application of your research. /
-            2023 年 – 示例：重要产品功能上线，或研究成果落地应用。
-          </li>
-          <li>
-            Feel free to add more items in reverse chronological order. /
-            可继续按时间倒序添加更多新闻条目。
-          </li>
-        </ul>
-      </section>
-
-      <section id="products">
-        <h2>Products / 产品与技术落地</h2>
-        <ul class="list-flat">
-          <li>
-            2024 – Briefly describe important product features you helped launch, such as video generation, multimodal
-            recommendation, or world-model-based features. /
-            2024 年 – 简要描述你参与落地的重要产品功能，例如视频生成、多模态推荐或基于世界模型的能力。
-          </li>
-          <li>
-            2018–2023 – Summarize earlier product launches, tech transfers, or large-scale deployments. /
-            2018–2023 年 – 总结以往的功能上线、技术转移或大规模部署经验。
-          </li>
-        </ul>
-        <div class="section-note">
-          You can list the number of feature launches per year here, inspired by the "Products" section on
-          <a href="https://jianwang-cmu.github.io/" target="_blank">Jian Wang's homepage</a>. /
-          你可以在这里统计每年重要功能上线数量，此设计参考自
-          <a href="https://jianwang-cmu.github.io/" target="_blank">Jian Wang 的主页</a>。
-        </div>
-      </section>
-
-      
-      <section id="publications">
-        <h2>Publications & Awards / 论文与奖项</h2>
-        <ul class="pub-list">
-          <li>
-            <strong>[Award]</strong> 2021 ByteDance IES Department "Beyond Expectation Contribution" Award / 字节跳动 IES 部门超出预期贡献奖.
-          </li>
-          <li>
-            <strong>[Award]</strong> 2017 ImageNet Challenge (ILSVRC2017) VID Track - Global 3rd Place / ImageNet 竞赛 VID 小组全球第三.
-          </li>
-          <li>
-            <strong>Yejin Chen</strong>, Wenxiu Shi, Wanshu Zhang, Peng Zhang, Songzeng Fan. 
-            "3D Convolutional Neural Network Fusion Model for Lung Nodule Detection." 
-            <em>IEEE 2nd International Conference on Multimedia Information Processing and Retrieval (MIPR)</em>, 2019.
-          </li>
-          <li>
-            Padmanabhan Sampath, <strong>Yejin Chen</strong>, Meng Yeong Lee, Sivakumar Nadarajan, Lihua Xie. 
-            "Modified Winding Function Approach to Stator Fault Modelling of Synchronous Generator." 
-            <em>12th IEEE International Conference on Control & Automation (ICCA)</em>, 2016.
-          </li>
-        </ul>
-      </section>
-
-
-      <section id="patents">
-        <h2>Patents / 专利</h2>
-        <ul class="list-flat">
-          <li>
-            <strong>Patent Title Example</strong> – Your Name, Co-author 1, Co-author 2, Year.
-            <span class="tag">US patent</span>
-            <br />
-            在这里填写一个专利示例条目，例如：专利名称 – 发明人列表，年份，可在后面补充专利链接。
-          </li>
-          <li>
-            <strong>Another Patent</strong> – Your Name, Co-author, Year.
-            <span class="tag">CN patent</span>
-            <br />
-            可以继续添加更多中美专利或其他地区专利，格式与上面类似。
-          </li>
-        </ul>
-      </section>
-
-      <p class="footer-note">
-        Last updated on Month Year. This page is structurally inspired by
-        <a href="https://jianwang-cmu.github.io/" target="_blank">Jian Wang's homepage</a>. /
-        最近更新于 某年某月。本页面的结构设计参考了
-        <a href="https://jianwang-cmu.github.io/" target="_blank">Jian Wang 的个人主页</a>。
+    <!-- About Section -->
+    <section>
+      <h2 class="section-title">About</h2>
+      <p class="mb-4 text-gray-800">
+        Hi, I am <strong>Yejin Chen</strong>, currently an <strong>Algorithm Architect</strong> at <strong>58.com</strong> / <strong>Wise Vision</strong>. 
+        With over 10 years of R&D experience in AI algorithms, my main research interests include <strong>Multimodality, Video Generation, Spatial Intelligence, and Recommendation Systems</strong>.
       </p>
-    </main>
+      <p class="mb-4 text-gray-800">
+        I have led the research and optimization of AI algorithms across multiple billion-user platforms, including Douyin (ByteDance) and Gumtree. I received my Master's degree in Pattern Recognition from <strong>Nanyang Technological University (NTU)</strong> in 2014, and my Bachelor's degree in Electronic and Information Engineering from <strong>Northeastern University (NEU)</strong> in 2012.
+      </p>
+    </section>
+
+    <!-- Experience Section -->
+    <section>
+      <h2 class="section-title">Experience</h2>
+      <div class="space-y-8">
+        
+        <div class="flex flex-col md:flex-row justify-between gap-2">
+          <div class="flex-1">
+            <h3 class="text-[17px] font-bold text-gray-900">Algorithm Architect <span class="text-gray-500 font-normal">| 58.com (Beijing)</span></h3>
+            <ul class="list-disc list-outside text-gray-700 text-[15px] mt-2 space-y-1.5 ml-4">
+              <li>Head of AI Algorithms for overseas business (Gumtree.com), focusing on multimodal representation modeling.</li>
+              <li>Reconstructed Gumtree's recommendation system by introducing multimodal LLM embeddings, improving CTR by 8%+ and commercial revenue by 3.6%.</li>
+              <li>Developed AI posting algorithms integrating visual/text multimodal LLMs (CLIP + Gemini Embeddings), achieving 96% category prediction accuracy.</li>
+              <li>Reduced average user posting time from 90s to 25s, increasing success rate by 12%.</li>
+            </ul>
+          </div>
+          <div class="text-gray-500 text-[15px] shrink-0 md:text-right font-mono">
+            2024.04 - Present
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between gap-2">
+          <div class="flex-1">
+            <h3 class="text-[17px] font-bold text-gray-900">Senior Algorithm Engineer <span class="text-gray-500 font-normal">| ByteDance (Beijing)</span></h3>
+            <ul class="list-disc list-outside text-gray-700 text-[15px] mt-2 space-y-1.5 ml-4">
+              <li>Optimized Douyin Live recommendation ecology using multimodal content understanding.</li>
+              <li>Identified violating live streams using voice/visual/text multimodality, saving platform revenue by 10M+ RMB monthly.</li>
+              <li>Pioneered negative watch-time metric modeling, reducing low-quality content ratio by 45%.</li>
+              <li>Governance of private messages and money laundering using BERT embeddings and clustering algorithms, detecting 30M RMB monthly.</li>
+            </ul>
+          </div>
+          <div class="text-gray-500 text-[15px] shrink-0 md:text-right font-mono">
+            2020.09 - 2023.11
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between gap-2">
+          <div class="flex-1">
+            <h3 class="text-[17px] font-bold text-gray-900">AI Algorithm Manager <span class="text-gray-500 font-normal">| Airdoc (Beijing)</span></h3>
+            <ul class="list-disc list-outside text-gray-700 text-[15px] mt-2 space-y-1.5 ml-4">
+              <li>Developed medical AI imaging frameworks and end/cloud inference.</li>
+              <li>Fundus ReID Project: Solved age-varying authentication issues using Res-UNet and FaceNet triple learning, achieving 99.99% accuracy deployed in bank systems.</li>
+              <li>Optimized long-tail data problems using generative algorithms (image inpainting) to augment fundus lesion datasets.</li>
+            </ul>
+          </div>
+          <div class="text-gray-500 text-[15px] shrink-0 md:text-right font-mono">
+            2018.11 - 2020.09
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between gap-2">
+          <div class="flex-1">
+            <h3 class="text-[17px] font-bold text-gray-900">Deep Learning R&D Engineer <span class="text-gray-500 font-normal">| Goertek (Beijing)</span></h3>
+            <ul class="list-disc list-outside text-gray-700 text-[15px] mt-2 space-y-1.5 ml-4">
+              <li>Developed visual frameworks for industrial defect detection (Classification/Detection/Segmentation), replacing thousands of manual positions with 99.6% accuracy.</li>
+              <li>Applied Deformable Convolution to detection networks, winning 3rd place globally in ImageNet ILSVRC2017 VID track.</li>
+              <li>Used pixel2pixel generative algorithms to augment defect sample data.</li>
+            </ul>
+          </div>
+          <div class="text-gray-500 text-[15px] shrink-0 md:text-right font-mono">
+            2016.10 - 2018.11
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between gap-2">
+          <div class="flex-1">
+            <h3 class="text-[17px] font-bold text-gray-900">Research Associate <span class="text-gray-500 font-normal">| Rolls-Royce @ NTU (Singapore)</span></h3>
+            <ul class="list-disc list-outside text-gray-700 text-[15px] mt-2 space-y-1.5 ml-4">
+              <li>Researched multi-sensor multimodal data for real-time engine fault prediction.</li>
+              <li>Integrated current, voltage, and magnetic field data for real-time fault monitoring algorithm frameworks.</li>
+            </ul>
+          </div>
+          <div class="text-gray-500 text-[15px] shrink-0 md:text-right font-mono">
+            2014.10 - 2016.10
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section>
+      <h2 class="section-title">Skills</h2>
+      <ul class="list-disc list-inside text-gray-800 text-[15px] space-y-2">
+        <li><strong>Multimodal Large Models:</strong> Gemini post-training, SFT training for multimodal models like CLIP; extensive experience in visual/text modality fusion and alignment.</li>
+        <li><strong>Computer Vision:</strong> 2D tasks (Classification, Detection, Segmentation), 3D tasks (Depth Estimation).</li>
+        <li><strong>Programming & Engineering:</strong> Proficient in C++/Python, TensorFlow/PyTorch; Machine Learning platform R&D, GPU utilization optimization, Cloud inference performance optimization.</li>
+      </ul>
+    </section>
+
+    <!-- Publications Section -->
+    <section>
+      <h2 class="section-title">Selected Publications & Awards</h2>
+      
+      <div class="space-y-6">
+        
+        <!-- Award 1 -->
+        <div class="flex flex-col md:flex-row gap-4 items-start">
+          <div class="w-[120px] h-[80px] bg-gray-50 border border-gray-200 rounded flex items-center justify-center text-3xl shrink-0 text-[#f59e0b]">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <div class="flex-1">
+            <div class="font-bold text-[16px] text-gray-900 mb-1">ByteDance IES Department "Beyond Expectation Contribution" Award</div>
+            <div class="text-gray-500 text-[14px] mb-1">2021</div>
+            <p class="text-gray-700 text-[14px]">Awarded for the successful governance of private messages and money laundering using BERT embeddings and clustering algorithms, detecting 30M RMB monthly.</p>
+          </div>
+        </div>
+
+        <!-- Award 2 -->
+        <div class="flex flex-col md:flex-row gap-4 items-start">
+          <div class="w-[120px] h-[80px] bg-gray-50 border border-gray-200 rounded flex items-center justify-center text-3xl shrink-0 text-gray-400">
+            <i class="fa-solid fa-medal"></i>
+          </div>
+          <div class="flex-1">
+            <div class="font-bold text-[16px] text-gray-900 mb-1">ImageNet Challenge (ILSVRC2017) VID Track - Global 3rd Place</div>
+            <div class="text-gray-500 text-[14px] mb-1">2017</div>
+            <p class="text-gray-700 text-[14px]">Applied Deformable Convolution to target detection networks to achieve top-tier performance worldwide in Video Object Detection.</p>
+          </div>
+        </div>
+
+        <!-- Pub 1 -->
+        <div class="flex flex-col md:flex-row gap-4 items-start">
+          <div class="w-[120px] h-[80px] bg-gray-50 border border-gray-200 rounded flex items-center justify-center shrink-0">
+             <i class="fa-regular fa-file-pdf text-3xl text-red-500 opacity-80"></i>
+          </div>
+          <div class="flex-1">
+            <div class="font-bold text-[16px] text-gray-900 mb-1 leading-snug"><a href="#">3D Convolutional Neural Network Fusion Model for Lung Nodule Detection</a></div>
+            <div class="text-[15px] text-gray-800 mb-1">
+              <strong>Yejin Chen</strong>, Wenxiu Shi, Wanshu Zhang, Peng Zhang, Songzeng Fan
+            </div>
+            <div class="text-[14px] text-gray-600 italic">
+              IEEE 2nd International Conference on Multimedia Information Processing and Retrieval (MIPR), 2019.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pub 2 -->
+        <div class="flex flex-col md:flex-row gap-4 items-start">
+          <div class="w-[120px] h-[80px] bg-gray-50 border border-gray-200 rounded flex items-center justify-center shrink-0">
+             <i class="fa-regular fa-file-pdf text-3xl text-red-500 opacity-80"></i>
+          </div>
+          <div class="flex-1">
+            <div class="font-bold text-[16px] text-gray-900 mb-1 leading-snug"><a href="#">Modified Winding Function Approach to Stator Fault Modelling of Synchronous Generator</a></div>
+            <div class="text-[15px] text-gray-800 mb-1">
+              Padmanabhan Sampath, <strong>Yejin Chen</strong>, Meng Yeong Lee, Sivakumar Nadarajan, Lihua Xie
+            </div>
+            <div class="text-[14px] text-gray-600 italic">
+              12th IEEE International Conference on Control & Automation (ICCA), 2016.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-24 border-t border-gray-200 pt-8 pb-12 text-center text-gray-500 text-[14px]">
+      <p>&copy; 2026 Yejin Chen. Created with OpenClaw AI.</p>
+    </footer>
   </div>
+
 </body>
 </html>
-
-

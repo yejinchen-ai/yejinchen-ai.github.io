@@ -1,239 +1,443 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yejin Chen - Homepage</title>
-  <meta name="description" content="Yejin Chen - Algorithm Architect at 58.com / Wise Vision. Multimodality, Video Generation, Spatial Intelligence." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yejin Chen · Algorithm Architect</title>
+  <meta name="description" content="Yejin Chen — Algorithm Architect focused on recommendation systems, multimodal content understanding, and applied AI.">
+  <meta name="theme-color" content="#f7f8fb">
   <style>
+    :root {
+      --ink: #162033;
+      --muted: #667085;
+      --line: #dfe4ec;
+      --paper: #ffffff;
+      --wash: #f7f8fb;
+      --blue: #2359a8;
+      --blue-soft: #eaf1fb;
+      --teal: #0d7a79;
+      --amber: #b86b15;
+      --shadow: 0 16px 42px rgba(31, 48, 77, .09);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #333;
-      line-height: 1.6;
+      margin: 0;
+      color: var(--ink);
+      background: var(--wash);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
     }
-    h1, h2, h3 {
-      font-weight: 600;
-      color: #111;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0 0 auto;
+      height: 420px;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 78% 10%, rgba(35,89,168,.13), transparent 33%),
+        linear-gradient(180deg, #fff 0%, rgba(247,248,251,0) 100%);
+      pointer-events: none;
     }
-    a {
-      color: #0066cc;
-      text-decoration: none;
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .lang { display: none; }
+    body[data-language="en"] .lang[data-lang="en"],
+    body[data-language="zh"] .lang[data-lang="zh"] { display: revert; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid rgba(223,228,236,.86);
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(15px);
     }
-    a:hover {
-      text-decoration: underline;
+    .nav {
+      width: min(1120px, calc(100% - 36px));
+      height: 66px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 22px;
     }
-    .section-title {
-      font-size: 1.5rem;
-      border-bottom: 2px solid #eaeaea;
-      padding-bottom: 8px;
-      margin-bottom: 24px;
-      margin-top: 48px;
+    .brand { color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 19px; letter-spacing: .01em; }
+    .brand:hover { text-decoration: none; }
+    .navlinks { margin-left: auto; display: flex; align-items: center; gap: 22px; font-size: 14px; }
+    .navlinks a { color: #465267; font-weight: 650; }
+    .lang-toggle {
+      border: 1px solid #cfd6e1;
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--ink);
+      padding: 7px 12px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 750;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(31,48,77,.05);
     }
-    .pub-img {
-      width: 100%;
-      max-width: 160px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
+    .lang-toggle:hover { border-color: var(--blue); color: var(--blue); }
+
+    main { width: min(1040px, calc(100% - 36px)); margin: 0 auto; }
+    .hero {
+      padding: 72px 0 42px;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 42px;
+      align-items: start;
+    }
+    .portrait-wrap { position: relative; }
+    .portrait {
+      width: 168px;
+      height: 168px;
+      object-fit: cover;
+      border-radius: 22px;
+      border: 6px solid #fff;
+      box-shadow: var(--shadow);
+      background: #edf1f6;
+    }
+    .status-dot {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      width: 18px;
+      height: 18px;
+      border: 4px solid #fff;
+      border-radius: 50%;
+      background: #24a777;
+    }
+    .eyebrow { margin: 2px 0 7px; color: var(--blue); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+    h1, h2, h3 { margin-top: 0; color: #111a2b; }
+    h1 { margin-bottom: 6px; font: 700 clamp(36px, 5vw, 52px)/1.12 Georgia, "Times New Roman", serif; letter-spacing: -.025em; }
+    .role { margin: 0 0 20px; color: #3f4b5f; font-size: 19px; font-weight: 650; }
+    .lede { max-width: 790px; margin: 0 0 22px; color: #455167; font-size: 17px; }
+    .contact { display: flex; flex-wrap: wrap; gap: 9px 18px; color: var(--muted); font-size: 14px; }
+    .contact a, .contact span { display: inline-flex; align-items: center; gap: 7px; }
+    .contact svg { width: 16px; height: 16px; color: #8a96a8; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 8px 14px;
+      border: 1px solid #d4dae4;
+      border-radius: 10px;
+      color: #354157;
+      background: #fff;
+      font-size: 14px;
+      font-weight: 750;
+    }
+    .button.primary { color: #fff; border-color: var(--blue); background: var(--blue); }
+    .button:hover { text-decoration: none; transform: translateY(-1px); }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 6px 0 70px;
+    }
+    .metric { padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.8); }
+    .metric strong { display: block; color: #17233a; font: 700 25px/1.1 Georgia, serif; }
+    .metric span { display: block; margin-top: 6px; color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+    section { margin: 0 0 82px; }
+    .section-head { display: grid; grid-template-columns: 150px 1fr; gap: 22px; align-items: baseline; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+    .section-head h2 { margin: 0; font: 700 25px/1.2 Georgia, "Times New Roman", serif; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .timeline { display: grid; gap: 30px; }
+    .job { display: grid; grid-template-columns: 150px 1fr; gap: 22px; }
+    .period { color: #69758a; font: 650 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; padding-top: 3px; }
+    .job h3 { margin-bottom: 3px; font-size: 18px; line-height: 1.42; }
+    .company { color: var(--muted); font-weight: 550; }
+    .job ul { margin: 10px 0 0; padding-left: 19px; color: #48546a; }
+    .job li { margin: 5px 0; }
+
+    .project-list { display: grid; gap: 22px; }
+    .project {
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(31,48,77,.055);
+    }
+    .project-media { min-height: 190px; background: #0b1a36; }
+    .project-media img { width: 100%; height: 100%; object-fit: cover; }
+    .project-body { padding: 23px 26px 22px; }
+    .project-kicker { margin: 0 0 6px; color: var(--teal); font-size: 12px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .project h3 { margin-bottom: 9px; font-size: 19px; line-height: 1.38; }
+    .project p { margin: 0; color: #4d596e; font-size: 15px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+    .tag { padding: 4px 9px; border-radius: 999px; color: #3f587a; background: var(--blue-soft); font-size: 12px; font-weight: 700; }
+    .tag.result { color: #8c4f0e; background: #fff1dc; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .panel { padding: 25px 27px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+    .panel h3 { margin-bottom: 14px; font-size: 17px; }
+    .panel ul { margin: 0; padding-left: 18px; color: #4d596e; }
+    .panel li { margin: 8px 0; }
+
+    .pub-list { display: grid; gap: 18px; }
+    .pub { display: grid; grid-template-columns: 88px 1fr; gap: 18px; align-items: start; }
+    .pub-year { color: var(--blue); font: 800 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .pub h3 { margin: 0 0 4px; font-size: 16px; line-height: 1.48; }
+    .pub p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+    footer { border-top: 1px solid var(--line); padding: 26px 0 42px; color: #7b8698; font-size: 13px; display: flex; justify-content: space-between; gap: 18px; }
+    .back-top { font-weight: 750; }
+
+    @media (max-width: 820px) {
+      .navlinks a { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 24px; padding-top: 42px; }
+      .portrait { width: 132px; height: 132px; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .section-head, .job { grid-template-columns: 1fr; gap: 6px; }
+      .project { grid-template-columns: 1fr; }
+      .project-media { max-height: 260px; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      main, .nav { width: min(100% - 24px, 1040px); }
+      .nav { gap: 10px; }
+      .brand { font-size: 16px; }
+      .metrics { grid-template-columns: 1fr; }
+      .metric { padding: 15px 17px; }
+      .project-body, .panel { padding: 20px; }
+      .pub { grid-template-columns: 1fr; gap: 5px; }
+      footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
     }
   </style>
 </head>
-<body class="bg-white">
-
-  <div class="max-w-[900px] mx-auto px-6 py-12">
-    <!-- Header Section -->
-    <header class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
-      <div class="shrink-0">
-        <!-- Using GitHub avatar as default placeholder for a professional photo -->
-        <img src="https://github.com/yejinchen-ai.png" alt="Yejin Chen" class="w-40 h-40 rounded-full object-cover shadow-sm border border-gray-200">
+<body data-language="en">
+  <nav class="topbar" aria-label="Primary navigation">
+    <div class="nav">
+      <a class="brand" href="#top">Yejin Chen</a>
+      <div class="navlinks">
+        <a href="#experience"><span class="lang" data-lang="en">Experience</span><span class="lang" data-lang="zh">经历</span></a>
+        <a href="#projects"><span class="lang" data-lang="en">Selected Work</span><span class="lang" data-lang="zh">代表项目</span></a>
+        <a href="#publications"><span class="lang" data-lang="en">Publications</span><span class="lang" data-lang="zh">论文荣誉</span></a>
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch to Chinese">中文</button>
       </div>
-      <div class="flex-1 text-center md:text-left pt-2">
-        <h1 class="text-[32px] font-bold mb-1">Yejin Chen (陈烨锦)</h1>
-        <p class="text-[17px] text-gray-700 mb-4 font-medium">Algorithm Architect @ 58.com / Wise Vision</p>
-        
-        <div class="flex flex-col md:flex-row gap-2 md:gap-6 text-[15px] text-gray-600 justify-center md:justify-start">
-          <span class="flex items-center gap-2 justify-center"><i class="fa-solid fa-envelope w-4 text-gray-400"></i> <a href="mailto:yejin@wisevision.com">yejin@wisevision.com</a></span>
-          <span class="flex items-center gap-2 justify-center"><i class="fa-solid fa-phone w-4 text-gray-400"></i> +86 17896028925</span>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="portrait-wrap">
+        <img class="portrait" src="https://github.com/yejinchen-ai.png" alt="Yejin Chen">
+        <span class="status-dot" aria-hidden="true"></span>
+      </div>
+      <div>
+        <p class="eyebrow"><span class="lang" data-lang="en">Algorithm Architect · Applied AI</span><span class="lang" data-lang="zh">算法架构师 · 应用人工智能</span></p>
+        <h1>Yejin Chen <span style="font-family:inherit;font-size:.64em;color:#596579;white-space:nowrap">陈烨锦</span></h1>
+        <p class="role"><span class="lang" data-lang="en">Recommendation Systems · Multimodal AI · Computer Vision</span><span class="lang" data-lang="zh">推荐系统 · 多模态人工智能 · 计算机视觉</span></p>
+        <p class="lede lang" data-lang="en">Algorithm architect with 10+ years of R&amp;D experience. I build end-to-end recommendation systems, combine multimodal content understanding with ranking, and turn applied AI into measurable product outcomes.</p>
+        <p class="lede lang" data-lang="zh">拥有10年以上算法研发经验，专注推荐系统、多模态内容理解与业务算法落地；具备召回、粗排、精排、重排全链路优化经验，并持续将AI能力转化为可量化的产品结果。</p>
+        <div class="contact">
+          <a href="mailto:hillox@qq.com" aria-label="Email hillox@qq.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg>hillox@qq.com
+          </a>
+          <a href="tel:+8615810998925">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.7 3.7 9 8l-2 2c1.4 3 3.7 5.3 6.7 6.7l2-2 4.3 2.3v3c0 .6-.4 1-1 1C10.2 21 3 13.8 3 5c0-.6.4-1 1-1z"/></svg>+86 158 1099 8925
+          </a>
+          <a href="https://github.com/yejinchen-ai" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.86c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.55 9.55 0 0 1 12 6.84a9.5 9.5 0 0 1 2.5.34c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.86V21c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>yejinchen-ai
+          </a>
         </div>
-        <div class="flex flex-col md:flex-row gap-2 md:gap-6 text-[15px] text-gray-600 justify-center md:justify-start mt-2">
-          <span class="flex items-center gap-2 justify-center"><i class="fa-brands fa-weixin w-4 text-gray-400"></i> yejinwise</span>
-          <a href="https://github.com/yejinchen-ai" target="_blank" class="flex items-center gap-2 justify-center"><i class="fa-brands fa-github w-4 text-gray-400"></i> yejinchen-ai</a>
+        <div class="actions">
+          <a class="button primary" href="#projects"><span class="lang" data-lang="en">View selected work</span><span class="lang" data-lang="zh">查看代表项目</span></a>
+          <a class="button" href="assets/Yejin_Chen_Resume_ZH.docx" download><span class="lang" data-lang="en">Download résumé</span><span class="lang" data-lang="zh">下载Word简历</span></a>
         </div>
       </div>
     </header>
 
-    <!-- About Section -->
-    <section>
-      <h2 class="section-title">About</h2>
-      <p class="mb-4 text-gray-800">
-        Hi, I am <strong>Yejin Chen</strong>, currently an <strong>Algorithm Architect</strong> at <strong>58.com</strong> / <strong>Wise Vision</strong>. 
-        With over 10 years of R&D experience in AI algorithms, my main research interests include <strong>Multimodality, Video Generation, Spatial Intelligence, and Recommendation Systems</strong>.
-      </p>
-      <p class="mb-4 text-gray-800">
-        I have led the research and optimization of AI algorithms across multiple billion-user platforms, including Douyin (ByteDance) and Gumtree. I received my Master's degree in Pattern Recognition from <strong>Nanyang Technological University (NTU)</strong> in 2014, and my Bachelor's degree in Electronic and Information Engineering from <strong>Northeastern University (NEU)</strong> in 2012.
-      </p>
-    </section>
+    <div class="metrics" aria-label="Career highlights">
+      <div class="metric"><strong>10+</strong><span class="lang" data-lang="en">years in algorithm R&amp;D</span><span class="lang" data-lang="zh">年算法研发经验</span></div>
+      <div class="metric"><strong>+8%+</strong><span class="lang" data-lang="en">Gumtree read/impr uplift</span><span class="lang" data-lang="zh">Gumtree read/impr提升</span></div>
+      <div class="metric"><strong>6.8→1.5</strong><span class="lang" data-lang="en">minutes per listing</span><span class="lang" data-lang="zh">分钟，用户发布耗时</span></div>
+      <div class="metric"><strong>99.99%</strong><span class="lang" data-lang="en">retinal ReID accuracy</span><span class="lang" data-lang="zh">眼底ReID识别准确率</span></div>
+    </div>
 
-    <!-- Experience Section -->
-    <section>
-      <h2 class="section-title">Experience</h2>
-      <div class="space-y-8">
-        
-        <div class="flex flex-col md:flex-row justify-between gap-2">
-          <div class="flex-1">
-            <h3 class="text-[17px] font-bold text-gray-900">Algorithm Architect <span class="text-gray-500 font-normal">| 58.com (Beijing)</span></h3>
-            <ul class="list-disc list-outside text-gray-700 text-[15px] mt-2 space-y-1.5 ml-4">
-              <li>Head of AI Algorithms for overseas business (Gumtree.com), focusing on multimodal representation modeling.</li>
-              <li>Reconstructed Gumtree's recommendation system by introducing multimodal LLM embeddings, improving CTR by 8%+ and commercial revenue by 3.6%.</li>
-              <li>Developed AI posting algorithms integrating visual/text multimodal LLMs (CLIP + Gemini Embeddings), achieving 96% category prediction accuracy.</li>
-              <li>Reduced average user posting time from 90s to 25s, increasing success rate by 12%.</li>
-            </ul>
+    <section id="experience">
+      <div class="section-head">
+        <h2><span class="lang" data-lang="en">Experience</span><span class="lang" data-lang="zh">工作经历</span></h2>
+        <p class="lang" data-lang="en">From real-time recommendation to medical and industrial vision.</p>
+        <p class="lang" data-lang="zh">覆盖实时推荐、内容治理、医疗影像与工业视觉。</p>
+      </div>
+      <div class="timeline">
+        <article class="job">
+          <div class="period">2024.04 — <span class="lang" data-lang="en">Present</span><span class="lang" data-lang="zh">至今</span></div>
+          <div><h3><span class="lang" data-lang="en">Algorithm Architect</span><span class="lang" data-lang="zh">算法架构师</span> <span class="company">· 58.com / 58同城</span></h3>
+            <ul class="lang" data-lang="en"><li>Lead recommendation algorithms for overseas marketplaces and the migration from strategy-driven to model-driven architecture.</li><li>Own recommendation-system reconstruction and AI-assisted listing for Gumtree.com and OK.com.</li></ul>
+            <ul class="lang" data-lang="zh"><li>负责海外业务推荐算法，推动推荐系统从策略驱动升级为模型驱动架构。</li><li>主导Gumtree.com推荐系统重构及Gumtree、OK.com AI发布算法研发。</li></ul>
           </div>
-          <div class="text-gray-500 text-[15px] shrink-0 md:text-right font-mono">
-            2024.04 - Present
+        </article>
+        <article class="job">
+          <div class="period">2020.09 — 2023.11</div>
+          <div><h3><span class="lang" data-lang="en">Senior Algorithm Engineer</span><span class="lang" data-lang="zh">资深算法工程师</span> <span class="company">· ByteDance / 字节跳动</span></h3>
+            <ul class="lang" data-lang="en"><li>Improved Douyin Live monetization and ecosystem recommendation with real-time features, ranking models, and multimodal content understanding.</li><li>Built negative-watch-time modeling, low-quality content governance, and risk-control strategies.</li></ul>
+            <ul class="lang" data-lang="zh"><li>通过实时特征、精排模型与多模态内容理解优化抖音直播营收及生态推荐。</li><li>建设负向时长模型、低质内容治理及风险识别策略。</li></ul>
           </div>
-        </div>
-
-        <div class="flex flex-col md:flex-row justify-between gap-2">
-          <div class="flex-1">
-            <h3 class="text-[17px] font-bold text-gray-900">Senior Algorithm Engineer <span class="text-gray-500 font-normal">| ByteDance (Beijing)</span></h3>
-            <ul class="list-disc list-outside text-gray-700 text-[15px] mt-2 space-y-1.5 ml-4">
-              <li>Optimized Douyin Live recommendation ecology using multimodal content understanding.</li>
-              <li>Identified violating live streams using voice/visual/text multimodality, saving platform revenue by 10M+ RMB monthly.</li>
-              <li>Pioneered negative watch-time metric modeling, reducing low-quality content ratio by 45%.</li>
-              <li>Governance of private messages and money laundering using BERT embeddings and clustering algorithms, detecting 30M RMB monthly.</li>
-            </ul>
+        </article>
+        <article class="job">
+          <div class="period">2018.11 — 2020.09</div>
+          <div><h3><span class="lang" data-lang="en">Senior Algorithm Engineer</span><span class="lang" data-lang="zh">高级算法工程师</span> <span class="company">· Airdoc / 鹰瞳科技</span></h3>
+            <ul class="lang" data-lang="en"><li>Developed classification, detection, segmentation, and ReID models for medical imaging and clinical decision support.</li></ul>
+            <ul class="lang" data-lang="zh"><li>负责医疗影像分类、检测、分割及ReID算法研发，推动临床辅助诊疗场景落地。</li></ul>
           </div>
-          <div class="text-gray-500 text-[15px] shrink-0 md:text-right font-mono">
-            2020.09 - 2023.11
+        </article>
+        <article class="job">
+          <div class="period">2016.10 — 2018.11</div>
+          <div><h3><span class="lang" data-lang="en">Deep Learning Algorithm Engineer</span><span class="lang" data-lang="zh">深度学习算法工程师</span> <span class="company">· Goertek / 歌尔股份</span></h3>
+            <ul class="lang" data-lang="en"><li>Built a computer-vision team and platform spanning classification, object detection, and segmentation for industrial quality inspection.</li></ul>
+            <ul class="lang" data-lang="zh"><li>组建深度学习算法团队，搭建分类、检测、分割视觉平台并应用于工业质检。</li></ul>
           </div>
-        </div>
-
-        <div class="flex flex-col md:flex-row justify-between gap-2">
-          <div class="flex-1">
-            <h3 class="text-[17px] font-bold text-gray-900">AI Algorithm Manager <span class="text-gray-500 font-normal">| Airdoc (Beijing)</span></h3>
-            <ul class="list-disc list-outside text-gray-700 text-[15px] mt-2 space-y-1.5 ml-4">
-              <li>Developed medical AI imaging frameworks and end/cloud inference.</li>
-              <li>Fundus ReID Project: Solved age-varying authentication issues using Res-UNet and FaceNet triple learning, achieving 99.99% accuracy deployed in bank systems.</li>
-              <li>Optimized long-tail data problems using generative algorithms (image inpainting) to augment fundus lesion datasets.</li>
-            </ul>
+        </article>
+        <article class="job">
+          <div class="period">2014.10 — 2016.10</div>
+          <div><h3><span class="lang" data-lang="en">Research Associate</span><span class="lang" data-lang="zh">副研究员</span> <span class="company">· Rolls-Royce @ NTU</span></h3>
+            <ul class="lang" data-lang="en"><li>Developed multi-sensor online monitoring for engine operating-state analysis and fault prediction.</li></ul>
+            <ul class="lang" data-lang="zh"><li>研发发动机多传感器在线监测系统，用于运行状态分析与故障预判。</li></ul>
           </div>
-          <div class="text-gray-500 text-[15px] shrink-0 md:text-right font-mono">
-            2018.11 - 2020.09
-          </div>
-        </div>
-
-        <div class="flex flex-col md:flex-row justify-between gap-2">
-          <div class="flex-1">
-            <h3 class="text-[17px] font-bold text-gray-900">Deep Learning R&D Engineer <span class="text-gray-500 font-normal">| Goertek (Beijing)</span></h3>
-            <ul class="list-disc list-outside text-gray-700 text-[15px] mt-2 space-y-1.5 ml-4">
-              <li>Developed visual frameworks for industrial defect detection (Classification/Detection/Segmentation), replacing thousands of manual positions with 99.6% accuracy.</li>
-              <li>Applied Deformable Convolution to detection networks, winning 3rd place globally in ImageNet ILSVRC2017 VID track.</li>
-              <li>Used pixel2pixel generative algorithms to augment defect sample data.</li>
-            </ul>
-          </div>
-          <div class="text-gray-500 text-[15px] shrink-0 md:text-right font-mono">
-            2016.10 - 2018.11
-          </div>
-        </div>
-
-        <div class="flex flex-col md:flex-row justify-between gap-2">
-          <div class="flex-1">
-            <h3 class="text-[17px] font-bold text-gray-900">Research Associate <span class="text-gray-500 font-normal">| Rolls-Royce @ NTU (Singapore)</span></h3>
-            <ul class="list-disc list-outside text-gray-700 text-[15px] mt-2 space-y-1.5 ml-4">
-              <li>Researched multi-sensor multimodal data for real-time engine fault prediction.</li>
-              <li>Integrated current, voltage, and magnetic field data for real-time fault monitoring algorithm frameworks.</li>
-            </ul>
-          </div>
-          <div class="text-gray-500 text-[15px] shrink-0 md:text-right font-mono">
-            2014.10 - 2016.10
-          </div>
-        </div>
-
+        </article>
       </div>
     </section>
 
-    <!-- Skills Section -->
-    <section>
-      <h2 class="section-title">Skills</h2>
-      <ul class="list-disc list-inside text-gray-800 text-[15px] space-y-2">
-        <li><strong>Multimodal Large Models:</strong> Gemini post-training, SFT training for multimodal models like CLIP; extensive experience in visual/text modality fusion and alignment.</li>
-        <li><strong>Computer Vision:</strong> 2D tasks (Classification, Detection, Segmentation), 3D tasks (Depth Estimation).</li>
-        <li><strong>Programming & Engineering:</strong> Proficient in C++/Python, TensorFlow/PyTorch; Machine Learning platform R&D, GPU utilization optimization, Cloud inference performance optimization.</li>
-      </ul>
-    </section>
-
-    <!-- Publications Section -->
-    <section>
-      <h2 class="section-title">Selected Publications & Awards</h2>
-      
-      <div class="space-y-6">
-        
-        <!-- Award 1 -->
-        <div class="flex flex-col md:flex-row gap-4 items-start">
-          <div class="w-[120px] h-[80px] bg-gray-50 border border-gray-200 rounded flex items-center justify-center text-3xl shrink-0 text-[#f59e0b]">
-            <i class="fa-solid fa-trophy"></i>
+    <section id="projects">
+      <div class="section-head">
+        <h2><span class="lang" data-lang="en">Selected Work</span><span class="lang" data-lang="zh">代表项目</span></h2>
+        <p class="lang" data-lang="en">Selected systems with measurable model and product impact.</p>
+        <p class="lang" data-lang="zh">以模型效果和产品结果为导向的代表性系统。</p>
+      </div>
+      <div class="project-list">
+        <article class="project">
+          <div class="project-media"><img src="assets/recommendation-system.webp" loading="lazy" alt="Multimodal marketplace recommendation system illustration"></div>
+          <div class="project-body">
+            <p class="project-kicker">Recommendation · Multimodal</p>
+            <h3><span class="lang" data-lang="en">Gumtree recommendation rebuild &amp; AI-assisted listing</span><span class="lang" data-lang="zh">Gumtree推荐系统重构与AI发布</span></h3>
+            <p class="lang" data-lang="en">Rebuilt a strategy-driven recommender into a modular retrieval–pre-ranking–ranking system. Iterated DeepFM features and models; built multimodal category/attribute prediction plus title and description generation.</p>
+            <p class="lang" data-lang="zh">将策略驱动推荐重构为召回、粗排、精排的模块化系统；基于DeepFM持续迭代特征与模型，并构建多模态类目/属性预测及标题、描述生成能力。</p>
+            <div class="tags"><span class="tag">DeepFM</span><span class="tag">Multimodal AI</span><span class="tag result">read/impr +8%+</span><span class="tag result"><span class="lang" data-lang="en">listing success +15%</span><span class="lang" data-lang="zh">发布成功率 +15%</span></span></div>
           </div>
-          <div class="flex-1">
-            <div class="font-bold text-[16px] text-gray-900 mb-1">ByteDance IES Department "Beyond Expectation Contribution" Award</div>
-            <div class="text-gray-500 text-[14px] mb-1">2021</div>
-            <p class="text-gray-700 text-[14px]">Awarded for the successful governance of private messages and money laundering using BERT embeddings and clustering algorithms, detecting 30M RMB monthly.</p>
+        </article>
+        <article class="project">
+          <div class="project-media"><img src="assets/live-recommendation.webp" loading="lazy" alt="Live-stream recommendation and content quality illustration"></div>
+          <div class="project-body">
+            <p class="project-kicker">Real-time Ranking · Content Quality</p>
+            <h3><span class="lang" data-lang="en">Douyin Live monetization &amp; ecosystem recommendation</span><span class="lang" data-lang="zh">抖音直播营收与生态推荐优化</span></h3>
+            <p class="lang" data-lang="en">Introduced minute-level real-time features into PK ranking, modeled negative watch time, and used content-understanding signals throughout retrieval and ranking to improve user experience and content quality.</p>
+            <p class="lang" data-lang="zh">将分钟级实时特征接入PK精排，建设负向时长模型，并在召回与排序链路融合内容理解信号，优化用户体验与内容生态。</p>
+            <div class="tags"><span class="tag">Real-time Features</span><span class="tag">Multi-objective Ranking</span><span class="tag result">UAUC +1%</span><span class="tag result"><span class="lang" data-lang="en">low-quality VV −45%</span><span class="lang" data-lang="zh">低质VV占比 −45%</span></span></div>
           </div>
-        </div>
-
-        <!-- Award 2 -->
-        <div class="flex flex-col md:flex-row gap-4 items-start">
-          <div class="w-[120px] h-[80px] bg-gray-50 border border-gray-200 rounded flex items-center justify-center text-3xl shrink-0 text-gray-400">
-            <i class="fa-solid fa-medal"></i>
+        </article>
+        <article class="project">
+          <div class="project-media"><img src="assets/retina-reid.webp" loading="lazy" alt="Retinal biometric re-identification illustration"></div>
+          <div class="project-body">
+            <p class="project-kicker">Medical AI · Re-identification</p>
+            <h3><span class="lang" data-lang="en">Retinal ReID for identity authentication</span><span class="lang" data-lang="zh">眼底ReID身份认证</span></h3>
+            <p class="lang" data-lang="en">Combined Res-UNet retinal segmentation with FaceNet and Triplet Loss to build an eye-fundus identity re-identification system, deployed in a banking authentication scenario.</p>
+            <p class="lang" data-lang="zh">使用Res-UNet完成眼底分割预处理，并基于FaceNet与Triplet Loss构建眼底身份重识别系统，落地银行身份认证场景。</p>
+            <div class="tags"><span class="tag">Res-UNet</span><span class="tag">FaceNet</span><span class="tag">Triplet Loss</span><span class="tag result">99.99%</span></div>
           </div>
-          <div class="flex-1">
-            <div class="font-bold text-[16px] text-gray-900 mb-1">ImageNet Challenge (ILSVRC2017) VID Track - Global 3rd Place</div>
-            <div class="text-gray-500 text-[14px] mb-1">2017</div>
-            <p class="text-gray-700 text-[14px]">Applied Deformable Convolution to target detection networks to achieve top-tier performance worldwide in Video Object Detection.</p>
+        </article>
+        <article class="project">
+          <div class="project-media"><img src="assets/industrial-inspection.webp" loading="lazy" alt="Automated industrial defect inspection illustration"></div>
+          <div class="project-body">
+            <p class="project-kicker">Industrial Vision · Quality Inspection</p>
+            <h3><span class="lang" data-lang="en">Automated defect inspection for smartphone production</span><span class="lang" data-lang="zh">手机产线缺陷智能检测</span></h3>
+            <p class="lang" data-lang="en">Designed classification, detection, and segmentation models for solder joints, magnetic circuits, appearance, and product markings; augmented scarce defect samples with Pix2Pix.</p>
+            <p class="lang" data-lang="zh">设计分类、检测、分割模型，覆盖焊点、磁路、外观及产品标识等缺陷，并使用Pix2Pix扩充稀缺缺陷样本。</p>
+            <div class="tags"><span class="tag">Detection</span><span class="tag">Segmentation</span><span class="tag">Pix2Pix</span><span class="tag result"><span class="lang" data-lang="en">accuracy 99.6%</span><span class="lang" data-lang="zh">准确率 99.6%</span></span><span class="tag result"><span class="lang" data-lang="en">miss rate 100 PPM</span><span class="lang" data-lang="zh">漏检率 100 PPM</span></span></div>
           </div>
-        </div>
-
-        <!-- Pub 1 -->
-        <div class="flex flex-col md:flex-row gap-4 items-start">
-          <div class="w-[120px] h-[80px] bg-gray-50 border border-gray-200 rounded flex items-center justify-center shrink-0">
-             <i class="fa-regular fa-file-pdf text-3xl text-red-500 opacity-80"></i>
-          </div>
-          <div class="flex-1">
-            <div class="font-bold text-[16px] text-gray-900 mb-1 leading-snug"><a href="#">3D Convolutional Neural Network Fusion Model for Lung Nodule Detection</a></div>
-            <div class="text-[15px] text-gray-800 mb-1">
-              <strong>Yejin Chen</strong>, Wenxiu Shi, Wanshu Zhang, Peng Zhang, Songzeng Fan
-            </div>
-            <div class="text-[14px] text-gray-600 italic">
-              IEEE 2nd International Conference on Multimedia Information Processing and Retrieval (MIPR), 2019.
-            </div>
-          </div>
-        </div>
-
-        <!-- Pub 2 -->
-        <div class="flex flex-col md:flex-row gap-4 items-start">
-          <div class="w-[120px] h-[80px] bg-gray-50 border border-gray-200 rounded flex items-center justify-center shrink-0">
-             <i class="fa-regular fa-file-pdf text-3xl text-red-500 opacity-80"></i>
-          </div>
-          <div class="flex-1">
-            <div class="font-bold text-[16px] text-gray-900 mb-1 leading-snug"><a href="#">Modified Winding Function Approach to Stator Fault Modelling of Synchronous Generator</a></div>
-            <div class="text-[15px] text-gray-800 mb-1">
-              Padmanabhan Sampath, <strong>Yejin Chen</strong>, Meng Yeong Lee, Sivakumar Nadarajan, Lihua Xie
-            </div>
-            <div class="text-[14px] text-gray-600 italic">
-              12th IEEE International Conference on Control & Automation (ICCA), 2016.
-            </div>
-          </div>
-        </div>
-
+        </article>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="mt-24 border-t border-gray-200 pt-8 pb-12 text-center text-gray-500 text-[14px]">
-      <p>&copy; 2026 Yejin Chen. Created with OpenClaw AI.</p>
+    <section id="skills">
+      <div class="section-head">
+        <h2><span class="lang" data-lang="en">Expertise</span><span class="lang" data-lang="zh">专业能力</span></h2>
+        <p class="lang" data-lang="en">Technical depth paired with product ownership.</p>
+        <p class="lang" data-lang="zh">技术深度与业务责任并重。</p>
+      </div>
+      <div class="two-col">
+        <div class="panel">
+          <h3><span class="lang" data-lang="en">Technical focus</span><span class="lang" data-lang="zh">技术方向</span></h3>
+          <ul class="lang" data-lang="en"><li>End-to-end recommendation: retrieval, pre-ranking, ranking, re-ranking</li><li>Wide&amp;Deep, DeepFM, real-time features, multi-objective optimization</li><li>Classification, detection, segmentation, multimodal representation</li></ul>
+          <ul class="lang" data-lang="zh"><li>推荐全链路：召回、粗排、精排、重排</li><li>Wide&amp;Deep、DeepFM、实时特征、多目标优化</li><li>图像分类、目标检测、分割与多模态表征</li></ul>
+        </div>
+        <div class="panel">
+          <h3><span class="lang" data-lang="en">Engineering &amp; leadership</span><span class="lang" data-lang="zh">工程与领导力</span></h3>
+          <ul class="lang" data-lang="en"><li>C++ / Python, TensorFlow, PyTorch, OpenCV, Linux</li><li>Architecture design, experimentation, cross-functional delivery</li><li>Technical leadership and team building</li></ul>
+          <ul class="lang" data-lang="zh"><li>C++ / Python、TensorFlow、PyTorch、OpenCV、Linux</li><li>架构设计、实验验证与跨职能项目交付</li><li>技术方案负责与团队建设</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-head">
+        <h2><span class="lang" data-lang="en">Education</span><span class="lang" data-lang="zh">教育背景</span></h2>
+        <p></p>
+      </div>
+      <div class="timeline">
+        <article class="job"><div class="period">2012.08 — 2014.10</div><div><h3><span class="lang" data-lang="en">M.Sc. in Pattern Recognition</span><span class="lang" data-lang="zh">模式识别 · 硕士</span> <span class="company">· Nanyang Technological University / 新加坡南洋理工大学</span></h3></div></article>
+        <article class="job"><div class="period">2008.09 — 2012.07</div><div><h3><span class="lang" data-lang="en">B.Eng. in Electronic Information Engineering</span><span class="lang" data-lang="zh">电子信息工程 · 本科</span> <span class="company">· Northeastern University / 东北大学</span></h3></div></article>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-head">
+        <h2><span class="lang" data-lang="en">Honors &amp; Publications</span><span class="lang" data-lang="zh">荣誉与论文</span></h2>
+        <p class="lang" data-lang="en">Selected recognition and peer-reviewed work.</p>
+        <p class="lang" data-lang="zh">代表性荣誉与同行评审论文。</p>
+      </div>
+      <div class="pub-list">
+        <article class="pub"><div class="pub-year">2021</div><div><h3><span class="lang" data-lang="en">ByteDance IES “Beyond Expectations Contribution” Award</span><span class="lang" data-lang="zh">字节跳动IES部门“超出预期贡献奖”</span></h3></div></article>
+        <article class="pub"><div class="pub-year">2017</div><div><h3><span class="lang" data-lang="en">ImageNet ILSVRC 2017 VID Track — Global 3rd Place</span><span class="lang" data-lang="zh">ImageNet ILSVRC 2017 VID赛道全球第三名</span></h3></div></article>
+        <article class="pub"><div class="pub-year">MIPR 2019</div><div><h3>3D Convolutional Neural Network Fusion Model for Lung Nodule Detection</h3><p><strong>Yejin Chen</strong>, Wenxiu Shi, Wanshu Zhang, Peng Zhang, Songzeng Fan.</p></div></article>
+        <article class="pub"><div class="pub-year">ISIC 2014</div><div><h3>An SOI-CMOS Low Noise Chopper Amplifier for High Temperature Applications</h3><p><strong>Yejin Chen</strong>, Wang Ling Goh, Jun Yu, Muthukumaraswamy Annamalai Arasu.</p></div></article>
+        <article class="pub"><div class="pub-year">ICCA 2016</div><div><h3>Modified Winding Function Approach to Stator Fault Modelling of Synchronous Generator</h3><p>Padmanabhan Sampath Kumar, <strong>Yejin Chen</strong>, Meng Yeong Lee, Sivakumar Nadarajan, Lihua Xie.</p></div></article>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 Yejin Chen · <span class="lang" data-lang="en">Built as a concise record of applied AI work.</span><span class="lang" data-lang="zh">记录可落地、可衡量的AI工作。</span></span>
+      <a class="back-top" href="#top"><span class="lang" data-lang="en">Back to top ↑</span><span class="lang" data-lang="zh">返回顶部 ↑</span></a>
     </footer>
-  </div>
+  </main>
 
+  <script>
+    (() => {
+      const body = document.body;
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('resume-language');
+      const initial = saved || (navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en');
+
+      function setLanguage(language) {
+        const lang = language === 'zh' ? 'zh' : 'en';
+        body.dataset.language = lang;
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        document.title = lang === 'zh' ? '陈烨锦 · 算法架构师' : 'Yejin Chen · Algorithm Architect';
+        toggle.textContent = lang === 'zh' ? 'EN' : '中文';
+        toggle.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切换到中文');
+        localStorage.setItem('resume-language', lang);
+      }
+
+      toggle.addEventListener('click', () => setLanguage(body.dataset.language === 'zh' ? 'en' : 'zh'));
+      setLanguage(initial);
+    })();
+  </script>
 </body>
 </html>

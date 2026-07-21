@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Case study: Douyin Live real-time ranking, monetization, and content ecosystem optimization.">
+  <meta name="theme-color" content="#f7f8fb">
+  <title>Douyin Live Recommendation · Yejin Chen</title>
+  <link rel="stylesheet" href="../project.css">
+</head>
+<body data-language="en" data-title-en="Douyin Live Recommendation · Yejin Chen" data-title-zh="抖音直播推荐优化 · 陈烨锦">
+  <nav class="topbar" aria-label="Primary navigation"><div class="nav"><a class="brand" href="../../">Yejin Chen</a><div class="navlinks"><a href="../"><span class="lang" data-lang="en">All projects</span><span class="lang" data-lang="zh">全部项目</span></a><a href="../../#experience"><span class="lang" data-lang="en">Experience</span><span class="lang" data-lang="zh">经历</span></a><button class="lang-toggle" id="langToggle" type="button">中文</button></div></div></nav>
+
+  <main>
+    <div class="breadcrumb"><a href="../../"><span class="lang" data-lang="en">Home</span><span class="lang" data-lang="zh">首页</span></a><span>/</span><a href="../"><span class="lang" data-lang="en">Projects</span><span class="lang" data-lang="zh">项目</span></a><span>/</span>Douyin Live</div>
+    <header class="project-hero">
+      <div>
+        <p class="kicker">Real-time Ranking · Content Quality · 2020—2023</p>
+        <h1><span class="lang" data-lang="en">Douyin Live monetization &amp; ecosystem recommendation</span><span class="lang" data-lang="zh">抖音直播营收与生态推荐优化</span></h1>
+        <p class="summary lang" data-lang="en">Improved live-stream ranking with minute-level signals while building negative-watch-time models and content-understanding-driven governance to balance revenue, engagement, and ecosystem quality.</p>
+        <p class="summary lang" data-lang="zh">以分钟级实时特征优化直播精排，并建设负向时长模型和内容理解治理体系，在营收、用户体验与内容生态之间实现多目标平衡。</p>
+        <div class="hero-tags"><span class="tag">Real-time Features</span><span class="tag">Multi-objective Ranking</span><span class="tag">Content Understanding</span><span class="tag">Risk Control</span></div>
+      </div>
+      <div class="hero-media"><img src="../../assets/live-recommendation.webp" alt="Live recommendation and content quality illustration"></div>
+    </header>
+
+    <div class="metric-strip">
+      <div class="metric"><strong>+1%</strong><span class="lang" data-lang="en">average UAUC uplift</span><span class="lang" data-lang="zh">UAUC 平均提升</span></div>
+      <div class="metric"><strong>−5.26%</strong><span class="lang" data-lang="en">negative watch time per user</span><span class="lang" data-lang="zh">人均负向看播时长</span></div>
+      <div class="metric"><strong>−45%</strong><span class="lang" data-lang="en">low-quality recommendation VV share</span><span class="lang" data-lang="zh">低质内容推荐 VV 占比</span></div>
+      <div class="metric"><strong>−15%</strong><span class="lang" data-lang="en">report / show penetration</span><span class="lang" data-lang="zh">举报渗透率</span></div>
+    </div>
+
+    <div class="content-layout">
+      <article class="article">
+        <section id="overview">
+          <h2><span class="lang" data-lang="en">Context and objectives</span><span class="lang" data-lang="zh">项目背景与目标</span></h2>
+          <p class="section-lede lang" data-lang="en">Live recommendation is a high-frequency, rapidly changing environment. Ranking must respond to minute-level room dynamics while protecting user experience and the long-term health of the creator ecosystem.</p>
+          <p class="section-lede lang" data-lang="zh">直播推荐具有高频、强实时和多目标特征。排序既要响应分钟级直播间变化，也要兼顾用户体验、营收效率与主播生态的长期健康。</p>
+          <div class="overview-grid">
+            <div class="info-card"><h3><span class="lang" data-lang="en">Fast-changing value</span><span class="lang" data-lang="zh">价值快速变化</span></h3><p class="lang" data-lang="en">Static and delayed features could not fully describe the current engagement and monetization state of a live room.</p><p class="lang" data-lang="zh">静态及延迟特征难以及时刻画直播间当前的互动、付费与内容状态。</p></div>
+            <div class="info-card"><h3><span class="lang" data-lang="en">Competing objectives</span><span class="lang" data-lang="zh">多目标约束</span></h3><p class="lang" data-lang="en">Revenue gains could not come at the cost of excessive negative watch time, low-quality exposure, or concentrated ecosystem damage.</p><p class="lang" data-lang="zh">营收增长不能以负向观看、低质曝光或生态损伤为代价，需要建立可衡量的平衡机制。</p></div>
+          </div>
+        </section>
+
+        <section id="architecture">
+          <h2><span class="lang" data-lang="en">Optimization loop</span><span class="lang" data-lang="zh">优化闭环</span></h2>
+          <div class="architecture">
+            <div class="flow">
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Streaming signals</span><span class="lang" data-lang="zh">实时信号</span></strong><span><span class="lang" data-lang="en">Minute-level engagement, payment, and room-state features</span><span class="lang" data-lang="zh">分钟级互动、付费与直播间状态特征</span></span></div>
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Content understanding</span><span class="lang" data-lang="zh">内容理解</span></strong><span><span class="lang" data-lang="en">Signals for black screens, idle streams, replay, low quality, and risk</span><span class="lang" data-lang="zh">黑屏、挂机、录播、低质画风与风险信号</span></span></div>
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Retrieval &amp; ranking</span><span class="lang" data-lang="zh">召回与排序</span></strong><span><span class="lang" data-lang="en">Feature fusion, negative-feedback models, and multi-objective scoring</span><span class="lang" data-lang="zh">特征融合、负反馈模型与多目标打分</span></span></div>
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Experiment &amp; governance</span><span class="lang" data-lang="zh">实验与治理</span></strong><span><span class="lang" data-lang="en">Reversal tests, audience policies, monitoring, and intervention</span><span class="lang" data-lang="zh">反转实验、分人群策略、监控与处置</span></span></div>
+            </div>
+            <p class="architecture-note lang" data-lang="en">Public high-level view; internal feature definitions, model parameters, and platform infrastructure are omitted.</p>
+            <p class="architecture-note lang" data-lang="zh">仅展示可公开的高层方法，省略内部特征定义、模型参数和平台基础设施。</p>
+          </div>
+        </section>
+
+        <section id="solution">
+          <h2><span class="lang" data-lang="en">Technical workstreams</span><span class="lang" data-lang="zh">核心技术方案</span></h2>
+          <div class="solution-grid">
+            <div class="solution-card"><span class="number">01</span><h3><span class="lang" data-lang="en">Minute-level real-time features</span><span class="lang" data-lang="zh">分钟级实时特征</span></h3><p class="lang" data-lang="en">Built live-stream features and feature-importance analysis, then integrated the strongest signals into PK ranking to improve freshness and value estimation.</p><p class="lang" data-lang="zh">建设直播分钟级实时特征并进行重要性分析，将有效信号接入 PK 精排，提升时效性与价值预估能力。</p></div>
+            <div class="solution-card"><span class="number">02</span><h3><span class="lang" data-lang="en">Negative-watch-time modeling</span><span class="lang" data-lang="zh">负向时长建模</span></h3><p class="lang" data-lang="en">Helped define negative watch time as an ecosystem metric and modeled it directly, optimizing user experience under explicit business-cost constraints.</p><p class="lang" data-lang="zh">参与建设“负向时长”生态指标并直接建模，在明确约束业务代价的前提下优化用户体验。</p></div>
+            <div class="solution-card"><span class="number">03</span><h3><span class="lang" data-lang="en">Content-quality signal fusion</span><span class="lang" data-lang="zh">内容质量信号融合</span></h3><p class="lang" data-lang="en">Expanded a single feedback signal into an interpretable issue taxonomy and injected content labels into retrieval, pre-ranking, and ranking.</p><p class="lang" data-lang="zh">将单一负反馈扩展为可解释的问题画风体系，并把内容标签融合到召回、粗排与精排环节。</p></div>
+            <div class="solution-card"><span class="number">04</span><h3><span class="lang" data-lang="en">Risk and policy systems</span><span class="lang" data-lang="zh">风险与策略体系</span></h3><p class="lang" data-lang="en">Used representation learning and clustering to identify coordinated abuse, while building reusable policy and analysis tools for faster governance experiments.</p><p class="lang" data-lang="zh">利用表征学习和聚类识别协同违规行为，并建设通用策略框架与分析工具，加速治理实验迭代。</p></div>
+          </div>
+        </section>
+
+        <section id="experiments">
+          <h2><span class="lang" data-lang="en">Evaluation strategy</span><span class="lang" data-lang="zh">评估策略</span></h2>
+          <ul class="lang" data-lang="en">
+            <li>Used offline AUC and UAUC to evaluate ranking discrimination before online rollout.</li>
+            <li>Tracked negative watch time together with overall watch time and adjacent business metrics to expose trade-offs.</li>
+            <li>Used packaged reversal experiments to estimate the cumulative ecosystem impact of multiple governance strategies.</li>
+            <li>Segmented users and content categories to prevent aggregate improvements from hiding localized regressions.</li>
+          </ul>
+          <ul class="lang" data-lang="zh">
+            <li>上线前以离线 AUC、UAUC 评估排序区分能力。</li>
+            <li>同时监控负向看播时长、整体看播时长及相邻业务指标，显式呈现收益与代价。</li>
+            <li>通过打包反转实验评估多项治理策略的累计生态效果。</li>
+            <li>按用户人群和内容垂类拆分分析，避免大盘正向掩盖局部回退。</li>
+          </ul>
+        </section>
+
+        <section id="results">
+          <h2><span class="lang" data-lang="en">Measured outcomes</span><span class="lang" data-lang="zh">量化收益</span></h2>
+          <div class="results-table">
+            <div class="result-row header"><div>Area</div><div>Result</div><div>Impact</div></div>
+            <div class="result-row"><div><span class="lang" data-lang="en">Real-time ranking</span><span class="lang" data-lang="zh">实时精排</span></div><div>AUC +0.9%<br>UAUC +1%</div><div><span class="lang" data-lang="en">Average offline uplift after adding minute-level features</span><span class="lang" data-lang="zh">分钟级实时特征接入后的平均离线提升</span></div></div>
+            <div class="result-row"><div><span class="lang" data-lang="en">Negative experience</span><span class="lang" data-lang="zh">负向体验</span></div><div>−5.26%</div><div><span class="lang" data-lang="en">Negative watch time per user, with total watch time down only 0.11%</span><span class="lang" data-lang="zh">人均负向看播时长下降，整体看播时长仅下降 0.11%</span></div></div>
+            <div class="result-row"><div><span class="lang" data-lang="en">Low-quality exposure</span><span class="lang" data-lang="zh">低质曝光</span></div><div>−45%</div><div><span class="lang" data-lang="en">Cumulative reduction in low-quality recommendation VV share</span><span class="lang" data-lang="zh">低质内容推荐 VV 占比累计下降</span></div></div>
+            <div class="result-row"><div><span class="lang" data-lang="en">Audience experience</span><span class="lang" data-lang="zh">分人群体验</span></div><div>−15%</div><div><span class="lang" data-lang="en">Report / show penetration after category-aware optimization</span><span class="lang" data-lang="zh">引入内容标签开展分人群优化后的举报渗透率下降</span></div></div>
+            <div class="result-row"><div><span class="lang" data-lang="en">Content governance</span><span class="lang" data-lang="zh">内容治理</span></div><div>¥10M / month</div><div><span class="lang" data-lang="en">Estimated monthly platform benefit; work received an IES contribution award</span><span class="lang" data-lang="zh">平台月度收益约 1000 万元，项目获 IES“超出预期贡献奖”</span></div></div>
+          </div>
+        </section>
+
+        <section id="role">
+          <h2><span class="lang" data-lang="en">Role and ownership</span><span class="lang" data-lang="zh">个人职责</span></h2>
+          <div class="role-box"><p class="lang" data-lang="en"><strong>Senior algorithm engineer in Douyin Live recommendation.</strong> Worked across real-time feature engineering, ranking models, negative-feedback optimization, content governance, risk strategies, experimentation, and reusable analysis tooling.</p><p class="lang" data-lang="zh"><strong>抖音直播推荐资深算法工程师。</strong>负责实时特征、精排模型、负反馈优化、内容治理、风险策略、实验验证及通用分析工具建设。</p></div>
+        </section>
+
+        <section id="stack">
+          <h2><span class="lang" data-lang="en">Technical scope</span><span class="lang" data-lang="zh">技术范围</span></h2>
+          <div class="stack"><span>Real-time Features</span><span>Ranking</span><span>Multi-objective Optimization</span><span>Content Understanding</span><span>Word2Vec</span><span>Affinity Propagation</span><span>Risk Control</span><span>A/B Testing</span></div>
+          <p class="confidentiality"><span class="lang" data-lang="en">This page presents public outcomes and generalized technical patterns only; proprietary implementations and internal data are intentionally excluded.</span><span class="lang" data-lang="zh">本页仅呈现可公开结果与通用技术模式，未包含专有实现和内部数据。</span></p>
+        </section>
+      </article>
+
+      <aside class="toc"><strong><span class="lang" data-lang="en">On this page</span><span class="lang" data-lang="zh">页面目录</span></strong><a href="#overview"><span class="lang" data-lang="en">Context</span><span class="lang" data-lang="zh">项目背景</span></a><a href="#architecture"><span class="lang" data-lang="en">Optimization loop</span><span class="lang" data-lang="zh">优化闭环</span></a><a href="#solution"><span class="lang" data-lang="en">Technical work</span><span class="lang" data-lang="zh">技术方案</span></a><a href="#results"><span class="lang" data-lang="en">Outcomes</span><span class="lang" data-lang="zh">量化收益</span></a><a href="#role"><span class="lang" data-lang="en">Role</span><span class="lang" data-lang="zh">个人职责</span></a></aside>
+    </div>
+
+    <div class="next-projects"><a href="../gumtree-recommendation/">← <span class="lang" data-lang="en">Gumtree</span><span class="lang" data-lang="zh">Gumtree 推荐</span></a><a href="../retinal-reid/"><span class="lang" data-lang="en">Next: Retinal ReID</span><span class="lang" data-lang="zh">下一项：眼底 ReID</span> →</a></div>
+    <footer><span>© 2026 Yejin Chen</span><a href="../../"><span class="lang" data-lang="en">Back to homepage</span><span class="lang" data-lang="zh">返回首页</span></a></footer>
+  </main>
+  <script src="../project.js"></script>
+</body>
+</html>

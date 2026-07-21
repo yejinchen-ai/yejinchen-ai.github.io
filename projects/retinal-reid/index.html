@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Case study: retinal ReID system for identity authentication using segmentation and metric learning.">
+  <meta name="theme-color" content="#f7f8fb">
+  <title>Retinal ReID · Yejin Chen</title>
+  <link rel="stylesheet" href="../project.css">
+</head>
+<body data-language="en" data-title-en="Retinal ReID · Yejin Chen" data-title-zh="眼底 ReID 身份认证 · 陈烨锦">
+  <nav class="topbar" aria-label="Primary navigation"><div class="nav"><a class="brand" href="../../">Yejin Chen</a><div class="navlinks"><a href="../"><span class="lang" data-lang="en">All projects</span><span class="lang" data-lang="zh">全部项目</span></a><a href="../../#experience"><span class="lang" data-lang="en">Experience</span><span class="lang" data-lang="zh">经历</span></a><button class="lang-toggle" id="langToggle" type="button">中文</button></div></div></nav>
+
+  <main>
+    <div class="breadcrumb"><a href="../../"><span class="lang" data-lang="en">Home</span><span class="lang" data-lang="zh">首页</span></a><span>/</span><a href="../"><span class="lang" data-lang="en">Projects</span><span class="lang" data-lang="zh">项目</span></a><span>/</span>Retinal ReID</div>
+    <header class="project-hero">
+      <div>
+        <p class="kicker">Medical AI · Re-identification · 2018—2020</p>
+        <h1><span class="lang" data-lang="en">Retinal ReID for identity authentication</span><span class="lang" data-lang="zh">眼底 ReID 身份认证</span></h1>
+        <p class="summary lang" data-lang="en">Built an end-to-end retinal identity matching pipeline that combines anatomical segmentation with metric learning, turning medical images into stable embeddings for authentication.</p>
+        <p class="summary lang" data-lang="zh">将眼底解剖结构分割与度量学习相结合，构建端到端身份匹配链路，把医疗影像转化为稳定身份表征并落地认证场景。</p>
+        <div class="hero-tags"><span class="tag">Res-UNet</span><span class="tag">FaceNet</span><span class="tag">Triplet Loss</span><span class="tag">Medical Imaging</span></div>
+      </div>
+      <div class="hero-media"><img src="../../assets/retina-reid.webp" alt="Retinal biometric re-identification illustration"></div>
+    </header>
+
+    <div class="metric-strip">
+      <div class="metric"><strong>99.99%</strong><span class="lang" data-lang="en">identity recognition accuracy</span><span class="lang" data-lang="zh">身份识别准确率</span></div>
+      <div class="metric"><strong>Res-UNet</strong><span class="lang" data-lang="en">retinal segmentation preprocessing</span><span class="lang" data-lang="zh">眼底分割预处理</span></div>
+      <div class="metric"><strong>FaceNet</strong><span class="lang" data-lang="en">compact identity embeddings</span><span class="lang" data-lang="zh">紧凑身份表征</span></div>
+      <div class="metric"><strong>Deployed</strong><span class="lang" data-lang="en">bank authentication scenario</span><span class="lang" data-lang="zh">落地银行身份认证</span></div>
+    </div>
+
+    <div class="content-layout">
+      <article class="article">
+        <section id="overview">
+          <h2><span class="lang" data-lang="en">Problem framing</span><span class="lang" data-lang="zh">问题定义</span></h2>
+          <p class="section-lede lang" data-lang="en">Retinal images contain rich vascular and anatomical patterns that can serve as biometric signals, but acquisition variation and medical-image noise make direct pixel-level comparison unreliable.</p>
+          <p class="section-lede lang" data-lang="zh">眼底图像包含丰富、相对稳定的血管及解剖结构，可作为生物特征；但采集差异与医疗影像噪声使直接像素比较难以获得可靠结果。</p>
+          <div class="overview-grid">
+            <div class="info-card"><h3><span class="lang" data-lang="en">Appearance variation</span><span class="lang" data-lang="zh">外观变化</span></h3><p class="lang" data-lang="en">Illumination, field of view, device differences, and image quality can shift the visual distribution of the same identity.</p><p class="lang" data-lang="zh">光照、视野、设备和成像质量差异，会造成同一身份图像的视觉分布变化。</p></div>
+            <div class="info-card"><h3><span class="lang" data-lang="en">Identity discrimination</span><span class="lang" data-lang="zh">身份区分</span></h3><p class="lang" data-lang="en">The representation must reduce intra-person variation while retaining subtle inter-person anatomical differences.</p><p class="lang" data-lang="zh">表征需要压缩同一人的成像差异，同时保留不同个体之间细微的解剖结构差异。</p></div>
+          </div>
+        </section>
+
+        <section id="architecture">
+          <h2><span class="lang" data-lang="en">Inference pipeline</span><span class="lang" data-lang="zh">推理链路</span></h2>
+          <div class="architecture">
+            <div class="flow">
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Image input</span><span class="lang" data-lang="zh">图像输入</span></strong><span><span class="lang" data-lang="en">Retinal photography and basic quality validation</span><span class="lang" data-lang="zh">眼底图像采集与基础质量校验</span></span></div>
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Segmentation</span><span class="lang" data-lang="zh">结构分割</span></strong><span><span class="lang" data-lang="en">Res-UNet isolates stable retinal regions and reduces background noise</span><span class="lang" data-lang="zh">Res-UNet 提取稳定眼底区域并降低背景干扰</span></span></div>
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Embedding</span><span class="lang" data-lang="zh">身份表征</span></strong><span><span class="lang" data-lang="en">FaceNet-style network maps images to a compact metric space</span><span class="lang" data-lang="zh">FaceNet 风格网络将图像映射到紧凑度量空间</span></span></div>
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Match decision</span><span class="lang" data-lang="zh">匹配决策</span></strong><span><span class="lang" data-lang="en">Embedding distance and calibrated threshold produce an authentication result</span><span class="lang" data-lang="zh">根据表征距离与校准阈值输出认证结果</span></span></div>
+            </div>
+            <p class="architecture-note lang" data-lang="en">The pipeline is described at a public level; clinical data handling and production security controls are not shown.</p>
+            <p class="architecture-note lang" data-lang="zh">此处仅展示可公开链路，不涉及临床数据处理和生产安全控制细节。</p>
+          </div>
+        </section>
+
+        <section id="solution">
+          <h2><span class="lang" data-lang="en">Technical approach</span><span class="lang" data-lang="zh">核心技术方案</span></h2>
+          <div class="solution-grid">
+            <div class="solution-card"><span class="number">01</span><h3><span class="lang" data-lang="en">Anatomy-aware preprocessing</span><span class="lang" data-lang="zh">解剖结构感知预处理</span></h3><p class="lang" data-lang="en">Used Res-UNet to segment the relevant fundus region before identity learning, reducing non-biometric visual variation.</p><p class="lang" data-lang="zh">在身份学习前使用 Res-UNet 分割有效眼底区域，降低非生物特征视觉变化带来的干扰。</p></div>
+            <div class="solution-card"><span class="number">02</span><h3><span class="lang" data-lang="en">Metric-learning representation</span><span class="lang" data-lang="zh">度量学习表征</span></h3><p class="lang" data-lang="en">Adapted FaceNet-style embedding learning so retinal images could be compared through distances rather than closed-set class scores.</p><p class="lang" data-lang="zh">采用 FaceNet 风格的嵌入学习，通过表征距离完成开放身份匹配，而非依赖封闭类别分类得分。</p></div>
+            <div class="solution-card"><span class="number">03</span><h3><span class="lang" data-lang="en">Triplet-based supervision</span><span class="lang" data-lang="zh">Triplet Loss 监督</span></h3><p class="lang" data-lang="en">Optimized anchor-positive and anchor-negative relationships to tighten same-identity clusters and separate different identities.</p><p class="lang" data-lang="zh">优化锚点、正样本与负样本关系，使同身份表征更紧凑、不同身份表征更分离。</p></div>
+            <div class="solution-card"><span class="number">04</span><h3><span class="lang" data-lang="en">Threshold calibration</span><span class="lang" data-lang="zh">匹配阈值校准</span></h3><p class="lang" data-lang="en">Evaluated similarity distributions and selected an operating threshold appropriate for high-accuracy authentication.</p><p class="lang" data-lang="zh">评估相似度分布并选择适合高准确率认证场景的工作阈值。</p></div>
+          </div>
+        </section>
+
+        <section id="engineering">
+          <h2><span class="lang" data-lang="en">Engineering considerations</span><span class="lang" data-lang="zh">工程化考虑</span></h2>
+          <ul class="lang" data-lang="en"><li>Structured the system as separate quality, segmentation, embedding, and decision stages for easier validation and fault isolation.</li><li>Evaluated the complete matching pipeline instead of reporting only the segmentation or embedding model in isolation.</li><li>Worked within a broader medical-imaging workflow spanning data construction, model training, and scenario validation.</li></ul>
+          <ul class="lang" data-lang="zh"><li>将系统拆分为质量校验、分割、表征与决策阶段，便于独立验证和问题定位。</li><li>以完整身份匹配链路评估效果，而不是仅报告分割或表征模型的单点指标。</li><li>在覆盖数据构建、模型训练和场景验证的医疗影像闭环中推进项目。</li></ul>
+        </section>
+
+        <section id="results">
+          <h2><span class="lang" data-lang="en">Outcome</span><span class="lang" data-lang="zh">项目收益</span></h2>
+          <div class="results-table">
+            <div class="result-row header"><div>Area</div><div>Result</div><div>Impact</div></div>
+            <div class="result-row"><div><span class="lang" data-lang="en">Identity recognition</span><span class="lang" data-lang="zh">身份识别</span></div><div>99.99%</div><div><span class="lang" data-lang="en">Recognition accuracy achieved by the end-to-end retinal ReID system</span><span class="lang" data-lang="zh">端到端眼底 ReID 系统达到的识别准确率</span></div></div>
+            <div class="result-row"><div><span class="lang" data-lang="en">Production application</span><span class="lang" data-lang="zh">业务落地</span></div><div><span class="lang" data-lang="en">Banking</span><span class="lang" data-lang="zh">银行场景</span></div><div><span class="lang" data-lang="en">Deployed for identity authentication</span><span class="lang" data-lang="zh">用于身份认证场景</span></div></div>
+          </div>
+        </section>
+
+        <section id="role">
+          <h2><span class="lang" data-lang="en">Role and ownership</span><span class="lang" data-lang="zh">个人职责</span></h2>
+          <div class="role-box"><p class="lang" data-lang="en"><strong>Senior algorithm engineer at Airdoc.</strong> Developed the segmentation preprocessing and ReID model and contributed to the closed-loop workflow from medical-image data construction and model training to scenario validation.</p><p class="lang" data-lang="zh"><strong>鹰瞳科技高级算法工程师。</strong>负责眼底分割预处理与 ReID 模型研发，并参与从医疗影像数据构建、模型训练到场景验证的闭环工作。</p></div>
+        </section>
+
+        <section id="stack">
+          <h2><span class="lang" data-lang="en">Technical scope</span><span class="lang" data-lang="zh">技术范围</span></h2>
+          <div class="stack"><span>Res-UNet</span><span>FaceNet</span><span>Triplet Loss</span><span>Metric Learning</span><span>Image Segmentation</span><span>Medical Imaging</span><span>Similarity Calibration</span></div>
+          <p class="confidentiality"><span class="lang" data-lang="en">No patient data, proprietary datasets, or production authentication controls are disclosed on this page.</span><span class="lang" data-lang="zh">本页不披露患者数据、专有数据集或生产认证控制细节。</span></p>
+        </section>
+      </article>
+
+      <aside class="toc"><strong><span class="lang" data-lang="en">On this page</span><span class="lang" data-lang="zh">页面目录</span></strong><a href="#overview"><span class="lang" data-lang="en">Problem</span><span class="lang" data-lang="zh">问题定义</span></a><a href="#architecture"><span class="lang" data-lang="en">Pipeline</span><span class="lang" data-lang="zh">推理链路</span></a><a href="#solution"><span class="lang" data-lang="en">Technical approach</span><span class="lang" data-lang="zh">技术方案</span></a><a href="#results"><span class="lang" data-lang="en">Outcome</span><span class="lang" data-lang="zh">项目收益</span></a><a href="#role"><span class="lang" data-lang="en">Role</span><span class="lang" data-lang="zh">个人职责</span></a></aside>
+    </div>
+
+    <div class="next-projects"><a href="../douyin-live-recommendation/">← <span class="lang" data-lang="en">Douyin Live</span><span class="lang" data-lang="zh">抖音直播</span></a><a href="../industrial-defect-inspection/"><span class="lang" data-lang="en">Next: Industrial inspection</span><span class="lang" data-lang="zh">下一项：工业质检</span> →</a></div>
+    <footer><span>© 2026 Yejin Chen</span><a href="../../"><span class="lang" data-lang="en">Back to homepage</span><span class="lang" data-lang="zh">返回首页</span></a></footer>
+  </main>
+  <script src="../project.js"></script>
+</body>
+</html>

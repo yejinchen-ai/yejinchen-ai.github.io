@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Case study: automated industrial defect inspection for smartphone production lines.">
+  <meta name="theme-color" content="#f7f8fb">
+  <title>Industrial Defect Inspection · Yejin Chen</title>
+  <link rel="stylesheet" href="../project.css">
+</head>
+<body data-language="en" data-title-en="Industrial Defect Inspection · Yejin Chen" data-title-zh="手机产线缺陷智能检测 · 陈烨锦">
+  <nav class="topbar" aria-label="Primary navigation"><div class="nav"><a class="brand" href="../../">Yejin Chen</a><div class="navlinks"><a href="../"><span class="lang" data-lang="en">All projects</span><span class="lang" data-lang="zh">全部项目</span></a><a href="../../#experience"><span class="lang" data-lang="en">Experience</span><span class="lang" data-lang="zh">经历</span></a><button class="lang-toggle" id="langToggle" type="button">中文</button></div></div></nav>
+
+  <main>
+    <div class="breadcrumb"><a href="../../"><span class="lang" data-lang="en">Home</span><span class="lang" data-lang="zh">首页</span></a><span>/</span><a href="../"><span class="lang" data-lang="en">Projects</span><span class="lang" data-lang="zh">项目</span></a><span>/</span><span class="lang" data-lang="en">Industrial inspection</span><span class="lang" data-lang="zh">工业质检</span></div>
+    <header class="project-hero">
+      <div>
+        <p class="kicker">Industrial Vision · Quality Inspection · 2016—2018</p>
+        <h1><span class="lang" data-lang="en">Automated defect inspection for smartphone production</span><span class="lang" data-lang="zh">手机产线缺陷智能检测</span></h1>
+        <p class="summary lang" data-lang="en">Designed a reusable computer-vision platform spanning classification, object detection, and segmentation for solder joints, magnetic circuits, appearance, and product-marking defects.</p>
+        <p class="summary lang" data-lang="zh">面向焊点、磁路、外观和产品标识等缺陷，设计覆盖分类、目标检测与图像分割的可复用工业视觉平台。</p>
+        <div class="hero-tags"><span class="tag">Classification</span><span class="tag">Detection</span><span class="tag">Segmentation</span><span class="tag">Pix2Pix</span></div>
+      </div>
+      <div class="hero-media"><img src="../../assets/industrial-inspection.webp" alt="Automated industrial defect inspection illustration"></div>
+    </header>
+
+    <div class="metric-strip">
+      <div class="metric"><strong>99.6%</strong><span class="lang" data-lang="en">inspection accuracy</span><span class="lang" data-lang="zh">检测准确率</span></div>
+      <div class="metric"><strong>100 PPM</strong><span class="lang" data-lang="en">miss rate</span><span class="lang" data-lang="zh">漏检率</span></div>
+      <div class="metric"><strong>0.6%</strong><span class="lang" data-lang="en">overkill rate</span><span class="lang" data-lang="zh">过杀率</span></div>
+      <div class="metric"><strong>1,000+</strong><span class="lang" data-lang="en">manual positions supported for replacement</span><span class="lang" data-lang="zh">支撑千人级人工工位替代</span></div>
+    </div>
+
+    <div class="content-layout">
+      <article class="article">
+        <section id="overview">
+          <h2><span class="lang" data-lang="en">Manufacturing challenge</span><span class="lang" data-lang="zh">制造场景挑战</span></h2>
+          <p class="section-lede lang" data-lang="en">Smartphone component inspection combines diverse defect morphology, stringent miss-rate requirements, and very limited examples of rare defects. A single monolithic model was not appropriate for every station and defect type.</p>
+          <p class="section-lede lang" data-lang="zh">手机组件质检同时面临缺陷形态多样、漏检要求严格以及稀缺缺陷样本有限等问题，单一模型难以适配所有工位和缺陷类型。</p>
+          <div class="overview-grid">
+            <div class="info-card"><h3><span class="lang" data-lang="en">Heterogeneous defects</span><span class="lang" data-lang="zh">缺陷类型异构</span></h3><p class="lang" data-lang="en">Some tasks need image-level classification, while others require precise localization or pixel-level boundary measurement.</p><p class="lang" data-lang="zh">部分任务适合图像级分类，另一些则需要精确定位或像素级边界测量。</p></div>
+            <div class="info-card"><h3><span class="lang" data-lang="en">Rare positive samples</span><span class="lang" data-lang="zh">缺陷样本稀缺</span></h3><p class="lang" data-lang="en">Production defects are intentionally rare, making it difficult to collect balanced training data for every failure mode.</p><p class="lang" data-lang="zh">真实产线缺陷本就低频，难以为每一种故障模式采集均衡、充分的训练数据。</p></div>
+          </div>
+        </section>
+
+        <section id="architecture">
+          <h2><span class="lang" data-lang="en">Inspection pipeline</span><span class="lang" data-lang="zh">检测链路</span></h2>
+          <div class="architecture">
+            <div class="flow">
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Image acquisition</span><span class="lang" data-lang="zh">图像采集</span></strong><span><span class="lang" data-lang="en">Station-specific lighting, camera, and region configuration</span><span class="lang" data-lang="zh">按工位配置光学、相机与检测区域</span></span></div>
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Task routing</span><span class="lang" data-lang="zh">任务路由</span></strong><span><span class="lang" data-lang="en">Select classification, detection, or segmentation by defect geometry</span><span class="lang" data-lang="zh">根据缺陷形态选择分类、检测或分割任务</span></span></div>
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Model inference</span><span class="lang" data-lang="zh">模型推理</span></strong><span><span class="lang" data-lang="en">Predict defect type, location, extent, and confidence</span><span class="lang" data-lang="zh">预测缺陷类型、位置、范围与置信度</span></span></div>
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Quality decision</span><span class="lang" data-lang="zh">质量判定</span></strong><span><span class="lang" data-lang="en">Calibrated thresholds drive pass, reject, or review actions</span><span class="lang" data-lang="zh">通过校准阈值触发放行、拦截或复核</span></span></div>
+            </div>
+            <p class="architecture-note lang" data-lang="en">The diagram abstracts production-line integration and customer-specific station configurations.</p>
+            <p class="architecture-note lang" data-lang="zh">图示对产线集成与客户特定工位配置进行了抽象。</p>
+          </div>
+        </section>
+
+        <section id="solution">
+          <h2><span class="lang" data-lang="en">Technical approach</span><span class="lang" data-lang="zh">核心技术方案</span></h2>
+          <div class="solution-grid">
+            <div class="solution-card"><span class="number">01</span><h3><span class="lang" data-lang="en">Multi-task vision platform</span><span class="lang" data-lang="zh">多任务视觉平台</span></h3><p class="lang" data-lang="en">Built reusable classification, detection, and segmentation capabilities rather than forcing all stations into one model pattern.</p><p class="lang" data-lang="zh">建设可复用的分类、检测与分割能力，根据工位问题选择合适范式，而不是强制使用单一模型。</p></div>
+            <div class="solution-card"><span class="number">02</span><h3><span class="lang" data-lang="en">Defect-specific modeling</span><span class="lang" data-lang="zh">缺陷专项建模</span></h3><p class="lang" data-lang="en">Designed algorithms for audio-module solder joints, magnetic circuits, exterior appearance, and product markings with task-appropriate labels and metrics.</p><p class="lang" data-lang="zh">针对音频模组焊点、磁路、外观和产品标识设计对应算法、标注方式与评估指标。</p></div>
+            <div class="solution-card"><span class="number">03</span><h3><span class="lang" data-lang="en">Pix2Pix defect synthesis</span><span class="lang" data-lang="zh">Pix2Pix 缺陷生成</span></h3><p class="lang" data-lang="en">Generated additional defect appearances with Pix2Pix to supplement scarce positive samples and improve model robustness.</p><p class="lang" data-lang="zh">使用 Pix2Pix 生成补充缺陷样本，缓解正样本稀缺问题并提高模型鲁棒性。</p></div>
+            <div class="solution-card"><span class="number">04</span><h3><span class="lang" data-lang="en">Threshold and error trade-offs</span><span class="lang" data-lang="zh">阈值与错误权衡</span></h3><p class="lang" data-lang="en">Balanced miss rate and overkill rate using production-oriented evaluation rather than optimizing aggregate accuracy alone.</p><p class="lang" data-lang="zh">面向真实生产权衡漏检率与过杀率，而不是只优化单一总体准确率。</p></div>
+          </div>
+        </section>
+
+        <section id="engineering">
+          <h2><span class="lang" data-lang="en">Production engineering</span><span class="lang" data-lang="zh">生产工程化</span></h2>
+          <ul class="lang" data-lang="en"><li>Standardized reusable vision capabilities so new stations could start from an established training and evaluation workflow.</li><li>Used station-level error analysis to separate imaging issues, annotation issues, and model issues.</li><li>Evaluated misses and false rejects explicitly because their manufacturing costs are asymmetric.</li><li>Connected algorithm outputs to pass, reject, and manual-review actions on the line.</li></ul>
+          <ul class="lang" data-lang="zh"><li>沉淀可复用视觉能力，使新工位能够复用既有训练和评估流程。</li><li>按工位开展错误分析，区分成像、标注和模型问题。</li><li>显式评估漏检与误杀，因为两类错误在制造场景中的成本不对称。</li><li>将算法结果连接到产线放行、拦截与人工复核动作。</li></ul>
+        </section>
+
+        <section id="results">
+          <h2><span class="lang" data-lang="en">Measured outcomes</span><span class="lang" data-lang="zh">量化收益</span></h2>
+          <div class="results-table">
+            <div class="result-row header"><div>Area</div><div>Result</div><div>Impact</div></div>
+            <div class="result-row"><div><span class="lang" data-lang="en">Overall inspection</span><span class="lang" data-lang="zh">整体检测</span></div><div>99.6%</div><div><span class="lang" data-lang="en">Accuracy across the deployed defect-inspection system</span><span class="lang" data-lang="zh">缺陷智能检测系统准确率</span></div></div>
+            <div class="result-row"><div><span class="lang" data-lang="en">Escaped defects</span><span class="lang" data-lang="zh">缺陷漏出</span></div><div>100 PPM</div><div><span class="lang" data-lang="en">Miss rate at production operating point</span><span class="lang" data-lang="zh">生产工作点下的漏检率</span></div></div>
+            <div class="result-row"><div><span class="lang" data-lang="en">False rejects</span><span class="lang" data-lang="zh">良品误杀</span></div><div>0.6%</div><div><span class="lang" data-lang="en">Overkill rate after threshold calibration</span><span class="lang" data-lang="zh">阈值校准后的过杀率</span></div></div>
+            <div class="result-row"><div><span class="lang" data-lang="en">Automation scale</span><span class="lang" data-lang="zh">自动化规模</span></div><div>1,000+</div><div><span class="lang" data-lang="en">Supported replacement of manual inspection positions at thousand-person scale</span><span class="lang" data-lang="zh">支撑千人级人工检测工位替代</span></div></div>
+          </div>
+        </section>
+
+        <section id="role">
+          <h2><span class="lang" data-lang="en">Role and ownership</span><span class="lang" data-lang="zh">个人职责</span></h2>
+          <div class="role-box"><p class="lang" data-lang="en"><strong>Deep learning algorithm engineer and technical lead.</strong> Built the laboratory's deep-learning algorithm team, designed the vision platform and model architecture, and drove deployment across industrial inspection scenarios.</p><p class="lang" data-lang="zh"><strong>深度学习算法工程师、技术负责人。</strong>组建创新实验室深度学习算法团队，负责视觉平台与模型架构设计，并推动多类工业质检场景落地。</p></div>
+        </section>
+
+        <section id="stack">
+          <h2><span class="lang" data-lang="en">Technical scope</span><span class="lang" data-lang="zh">技术范围</span></h2>
+          <div class="stack"><span>Image Classification</span><span>Object Detection</span><span>Image Segmentation</span><span>Pix2Pix</span><span>Data Augmentation</span><span>Threshold Calibration</span><span>Production Inspection</span></div>
+          <p class="confidentiality"><span class="lang" data-lang="en">Customer-specific product data, station designs, and production configurations are not disclosed.</span><span class="lang" data-lang="zh">本页不披露客户产品数据、工位设计或生产配置细节。</span></p>
+        </section>
+      </article>
+
+      <aside class="toc"><strong><span class="lang" data-lang="en">On this page</span><span class="lang" data-lang="zh">页面目录</span></strong><a href="#overview"><span class="lang" data-lang="en">Challenge</span><span class="lang" data-lang="zh">场景挑战</span></a><a href="#architecture"><span class="lang" data-lang="en">Pipeline</span><span class="lang" data-lang="zh">检测链路</span></a><a href="#solution"><span class="lang" data-lang="en">Technical approach</span><span class="lang" data-lang="zh">技术方案</span></a><a href="#results"><span class="lang" data-lang="en">Outcomes</span><span class="lang" data-lang="zh">量化收益</span></a><a href="#role"><span class="lang" data-lang="en">Role</span><span class="lang" data-lang="zh">个人职责</span></a></aside>
+    </div>
+
+    <div class="next-projects"><a href="../retinal-reid/">← <span class="lang" data-lang="en">Retinal ReID</span><span class="lang" data-lang="zh">眼底 ReID</span></a><a href="../"><span class="lang" data-lang="en">All projects</span><span class="lang" data-lang="zh">全部项目</span> →</a></div>
+    <footer><span>© 2026 Yejin Chen</span><a href="../../"><span class="lang" data-lang="en">Back to homepage</span><span class="lang" data-lang="zh">返回首页</span></a></footer>
+  </main>
+  <script src="../project.js"></script>
+</body>
+</html>

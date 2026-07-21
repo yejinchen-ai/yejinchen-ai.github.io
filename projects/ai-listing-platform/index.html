@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Case study: Gumtree multimodal AI intelligent listing platform.">
+  <meta name="theme-color" content="#f7f8fb">
+  <title>AI Intelligent Listing · Yejin Chen</title>
+  <link rel="stylesheet" href="../project.css">
+</head>
+<body data-language="en" data-title-en="AI Intelligent Listing · Yejin Chen" data-title-zh="AI 智能发布平台 · 陈烨锦">
+  <nav class="topbar" aria-label="Primary navigation"><div class="nav"><a class="brand" href="../../">Yejin Chen</a><div class="navlinks"><a href="../"><span class="lang" data-lang="en">All projects</span><span class="lang" data-lang="zh">全部项目</span></a><a href="../gumtree-recommendation/">Gumtree</a><button class="lang-toggle" id="langToggle" type="button">中文</button></div></div></nav>
+
+  <main>
+    <div class="breadcrumb"><a href="../../"><span class="lang" data-lang="en">Home</span><span class="lang" data-lang="zh">首页</span></a><span>/</span><a href="../"><span class="lang" data-lang="en">Projects</span><span class="lang" data-lang="zh">项目</span></a><span>/</span><span class="lang" data-lang="en">AI Listing</span><span class="lang" data-lang="zh">AI 智能发布</span></div>
+    <header class="project-hero">
+      <div>
+        <p class="kicker">Multimodal AI · Marketplace · 2024—Present</p>
+        <h1><span class="lang" data-lang="en">Gumtree AI intelligent listing platform</span><span class="lang" data-lang="zh">Gumtree AI 智能发布平台</span></h1>
+        <p class="summary lang" data-lang="en">A one-stop multimodal system for non-standard second-hand goods. From images or minimal text, it predicts category, structured attributes, title and description, market price, and parcel dimensions and weight.</p>
+        <p class="summary lang" data-lang="zh">对标闲鱼 AI 发布能力，面向二手电商非标商品构建多模态大模型一站式发布系统。用户仅需上传商品图片或输入少量文本，即可完成类目、结构化属性、标题与描述、价格及物流包裹尺寸/重量预测。</p>
+        <div class="hero-tags"><span class="tag">SigLIP</span><span class="tag">Gemini</span><span class="tag">Qwen3-VL Embedding</span><span class="tag">Milvus</span><span class="tag">gRPC</span></div>
+      </div>
+      <div class="hero-media"><img src="../../assets/recommendation-system.webp" alt="Multimodal AI listing platform illustration"></div>
+    </header>
+
+    <div class="metric-strip">
+      <div class="metric"><strong>1200+</strong><span class="lang" data-lang="en">hierarchical categories</span><span class="lang" data-lang="zh">层级类目</span></div>
+      <div class="metric"><strong>+3.8%</strong><span class="lang" data-lang="en">new listing posts per user</span><span class="lang" data-lang="zh">用户新发帖数</span></div>
+      <div class="metric"><strong>+1.5%</strong><span class="lang" data-lang="en">new-lister success rate</span><span class="lang" data-lang="zh">新发帖用户成功率</span></div>
+      <div class="metric"><strong>+3.2%</strong><span class="lang" data-lang="en">onsite revenue per user</span><span class="lang" data-lang="zh">用户站内营收</span></div>
+    </div>
+
+    <div class="content-layout">
+      <article class="article">
+        <section id="challenge">
+          <h2><span class="lang" data-lang="en">Problem and constraints</span><span class="lang" data-lang="zh">问题与约束</span></h2>
+          <p class="section-lede lang" data-lang="en">Classified marketplaces combine deep category trees, long-tail data, visually similar categories, unstructured user input, and strict cost and latency requirements.</p>
+          <p class="section-lede lang" data-lang="zh">二手分类信息平台同时面临深层类目树、长尾样本、视觉相似类目、非结构化用户输入，以及大模型成本与延迟约束。</p>
+          <div class="overview-grid">
+            <div class="info-card"><h3><span class="lang" data-lang="en">Classification complexity</span><span class="lang" data-lang="zh">类目识别复杂度</span></h3><p class="lang" data-lang="en">A flat LLM classification request across 1200+ hierarchical categories is expensive and difficult to control, especially for fine-grained and long-tail classes.</p><p class="lang" data-lang="zh">对 1200+ 层级类目直接进行大模型全量分类，成本高且难以控制，细粒度与长尾类目尤为困难。</p></div>
+            <div class="info-card"><h3><span class="lang" data-lang="en">Structured platform rules</span><span class="lang" data-lang="zh">平台结构化约束</span></h3><p class="lang" data-lang="en">Generated categories and attributes must map to legal platform IDs and values without hallucination or cross-category contamination.</p><p class="lang" data-lang="zh">生成结果必须映射到平台合法类目 ID、属性名和属性值，并避免幻觉及跨类目属性污染。</p></div>
+          </div>
+        </section>
+
+        <section id="architecture">
+          <h2><span class="lang" data-lang="en">End-to-end architecture</span><span class="lang" data-lang="zh">端到端架构</span></h2>
+          <div class="architecture">
+            <div class="flow">
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Multimodal input</span><span class="lang" data-lang="zh">多模态输入</span></strong><span><span class="lang" data-lang="en">Variable-length image sequence and optional user text</span><span class="lang" data-lang="zh">变长图片序列与可选用户文本</span></span></div>
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Candidate retrieval</span><span class="lang" data-lang="zh">候选召回</span></strong><span><span class="lang" data-lang="en">SigLIP retrieves high-recall Top-K categories</span><span class="lang" data-lang="zh">SigLIP 高召回 Top-K 类目</span></span></div>
+              <div class="flow-step"><strong><span class="lang" data-lang="en">LLM reranking</span><span class="lang" data-lang="zh">大模型精排</span></strong><span><span class="lang" data-lang="en">Gemini resolves fine-grained semantics and structured attributes</span><span class="lang" data-lang="zh">Gemini 识别细粒度语义与结构化属性</span></span></div>
+              <div class="flow-step"><strong><span class="lang" data-lang="en">Generation &amp; estimation</span><span class="lang" data-lang="zh">生成与估计</span></strong><span><span class="lang" data-lang="en">Copy, price range, parcel size/weight, validation, and API delivery</span><span class="lang" data-lang="zh">文案、价格、包裹估计、校验与服务输出</span></span></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="solution">
+          <h2><span class="lang" data-lang="en">Core technical work</span><span class="lang" data-lang="zh">核心工作与技术创新</span></h2>
+          <div class="solution-grid">
+            <div class="solution-card"><span class="number">01</span><h3><span class="lang" data-lang="en">Cascaded category recognition</span><span class="lang" data-lang="zh">级联类目识别</span></h3><p class="lang" data-lang="en">Combined SigLIP Top-K high-recall retrieval with Gemini multimodal reranking to balance recall, Top-1 accuracy, latency, and inference cost.</p><p class="lang" data-lang="zh">设计“SigLIP 小模型 Top-K 高召回 + Gemini 多模态大模型精排”架构，平衡召回率、Top-1 准确率、延迟与成本。</p></div>
+            <div class="solution-card"><span class="number">02</span><h3><span class="lang" data-lang="en">Multi-image representation</span><span class="lang" data-lang="zh">多图商品表征</span></h3><p class="lang" data-lang="en">Encoded variable-length images independently and applied mean pooling to avoid collage resolution loss. Rich-text supervision and category prototypes reduced train-serving semantic drift.</p><p class="lang" data-lang="zh">对变长图片序列独立编码并 Mean Pooling，避免拼图分辨率损失；通过富文本监督与类目原型向量缓解训练和推理语义偏移。</p></div>
+            <div class="solution-card"><span class="number">03</span><h3><span class="lang" data-lang="en">Schema-constrained generation</span><span class="lang" data-lang="zh">Schema 约束生成</span></h3><p class="lang" data-lang="en">Used the category knowledge graph and dynamic attribute schemas to map model output to legal IDs and values, with confidence controls, validation, hallucination filters, and fallbacks.</p><p class="lang" data-lang="zh">利用类目知识图谱与动态属性 Schema 映射合法 ID 和属性值，并加入置信度、结果校验、幻觉过滤及降级策略。</p></div>
+            <div class="solution-card"><span class="number">04</span><h3><span class="lang" data-lang="en">Price and parcel intelligence</span><span class="lang" data-lang="zh">价格与包裹智能</span></h3><p class="lang" data-lang="en">Used Qwen3-VL Embedding, Milvus similar-item retrieval, and robust aggregation for market price ranges, alongside parcel dimension and weight estimation.</p><p class="lang" data-lang="zh">结合 Qwen3-VL Embedding、Milvus 相似商品召回与鲁棒价格聚合预测市场价格区间，并估算包裹尺寸和重量。</p></div>
+          </div>
+        </section>
+
+        <section id="engineering">
+          <h2><span class="lang" data-lang="en">Production engineering</span><span class="lang" data-lang="zh">生产工程化</span></h2>
+          <ul class="lang" data-lang="en"><li>Packaged classification, attribute extraction, copy generation, price, and parcel prediction behind a unified gRPC service.</li><li>Added cache, retry, timeout fallback, model routing, and observable logs for stable one-stop business integration.</li><li>Used BigQuery analysis and online A/B testing to connect model changes to listing and revenue outcomes.</li></ul>
+          <ul class="lang" data-lang="zh"><li>将分类、属性抽取、文案生成、价格与包裹预测封装为统一 gRPC 服务。</li><li>配套缓存、重试、超时降级、模型路由与可观测日志，支持业务端一站式接入。</li><li>通过 BigQuery 分析与线上 A/B 实验，将模型改进连接到发布与营收指标。</li></ul>
+        </section>
+
+        <section id="results">
+          <h2><span class="lang" data-lang="en">Business outcomes</span><span class="lang" data-lang="zh">业务结果</span></h2>
+          <div class="results-table">
+            <div class="result-row header"><div>Metric</div><div>Result</div><div>Meaning</div></div>
+            <div class="result-row"><div>New Listing Posts per User</div><div>+3.8%</div><div><span class="lang" data-lang="en">More listings created per participating user</span><span class="lang" data-lang="zh">参与用户的人均新发帖数提升</span></div></div>
+            <div class="result-row"><div>New Lister Success Rate</div><div>+1.5%</div><div><span class="lang" data-lang="en">Higher successful listing rate for new sellers</span><span class="lang" data-lang="zh">新发帖用户成功率提升</span></div></div>
+            <div class="result-row"><div>Onsite Revenue per User</div><div>+3.2%</div><div><span class="lang" data-lang="en">Higher onsite revenue per participating user</span><span class="lang" data-lang="zh">参与用户的站内营收提升</span></div></div>
+          </div>
+        </section>
+
+        <section id="role"><h2><span class="lang" data-lang="en">Role and ownership</span><span class="lang" data-lang="zh">个人职责</span></h2><div class="role-box"><p class="lang" data-lang="en"><strong>Algorithm architect and overseas AI lead.</strong> Owned opportunity identification, architecture, multimodal modeling, production service design, experimentation, and cross-functional delivery.</p><p class="lang" data-lang="zh"><strong>算法架构师、海外业务 AI 与推荐算法负责人。</strong>负责机会识别、系统架构、多模态建模、生产服务设计、实验验证及跨团队交付。</p></div></section>
+        <section id="stack"><h2><span class="lang" data-lang="en">Technical stack</span><span class="lang" data-lang="zh">技术栈</span></h2><div class="stack"><span>Python</span><span>Gemini</span><span>SigLIP</span><span>Qwen3-VL Embedding</span><span>Milvus</span><span>Redis / RedisGraph</span><span>gRPC</span><span>BigQuery</span><span>A/B Testing</span></div></section>
+      </article>
+      <aside class="toc"><strong><span class="lang" data-lang="en">On this page</span><span class="lang" data-lang="zh">页面目录</span></strong><a href="#challenge"><span class="lang" data-lang="en">Problem</span><span class="lang" data-lang="zh">问题约束</span></a><a href="#architecture"><span class="lang" data-lang="en">Architecture</span><span class="lang" data-lang="zh">系统架构</span></a><a href="#solution"><span class="lang" data-lang="en">Technical work</span><span class="lang" data-lang="zh">技术方案</span></a><a href="#results"><span class="lang" data-lang="en">Outcomes</span><span class="lang" data-lang="zh">业务结果</span></a><a href="#role"><span class="lang" data-lang="en">Role</span><span class="lang" data-lang="zh">个人职责</span></a></aside>
+    </div>
+
+    <div class="next-projects"><a href="../gumtree-recommendation/">← <span class="lang" data-lang="en">Gumtree projects</span><span class="lang" data-lang="zh">Gumtree 项目组</span></a><a href="../ai-listing-agent/"><span class="lang" data-lang="en">Next: Self-improving Agent</span><span class="lang" data-lang="zh">下一项：自迭代 Agent</span> →</a></div>
+    <footer><span>© 2026 Yejin Chen</span><a href="../../"><span class="lang" data-lang="en">Back to homepage</span><span class="lang" data-lang="zh">返回首页</span></a></footer>
+  </main>
+  <script src="../project.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Case study: recommendation system powered by a self-improving Agent.">
+  <meta name="theme-color" content="#f7f8fb">
+  <title>Agentic Recommendation · Yejin Chen</title>
+  <link rel="stylesheet" href="../project.css">
+</head>
+<body data-language="en" data-title-en="Agentic Recommendation · Yejin Chen" data-title-zh="基于自迭代 Agent 的推荐系统 · 陈烨锦">
+  <nav class="topbar" aria-label="Primary navigation"><div class="nav"><a class="brand" href="../../">Yejin Chen</a><div class="navlinks"><a href="../"><span class="lang" data-lang="en">All projects</span><span class="lang" data-lang="zh">全部项目</span></a><a href="../gumtree-recommendation/">Gumtree</a><button class="lang-toggle" id="langToggle" type="button">中文</button></div></div></nav>
+
+  <main>
+    <div class="breadcrumb"><a href="../../"><span class="lang" data-lang="en">Home</span><span class="lang" data-lang="zh">首页</span></a><span>/</span><a href="../"><span class="lang" data-lang="en">Projects</span><span class="lang" data-lang="zh">项目</span></a><span>/</span><span class="lang" data-lang="en">Agentic recommendation</span><span class="lang" data-lang="zh">Agent 推荐系统</span></div>
+    <header class="project-hero">
+      <div>
+        <p class="kicker">Agentic Recommendation · Continuous Experimentation · 2025—Present</p>
+        <h1><span class="lang" data-lang="en">Recommendation powered by a self-improving Agent</span><span class="lang" data-lang="zh">基于自迭代 Agent 的推荐系统</span></h1>
+        <p class="summary lang" data-lang="en">Extends the AI Listing Agent's observe–diagnose–experiment–learn pattern across retrieval, pre-ranking, ranking, and reranking to create a safe, explainable, and auditable semi-automated recommendation evolution loop.</p>
+        <p class="summary lang" data-lang="zh">将 AI 发布 Agent 的“观测—诊断—实验—学习”范式扩展至多路召回、粗排、精排与重排，构建安全、可解释、可审计的半自动推荐演进闭环。</p>
+        <div class="hero-tags"><span class="tag">Retrieval</span><span class="tag">Ranking</span><span class="tag">Multi-Agent</span><span class="tag">Offline Replay</span><span class="tag">A/B Testing</span></div>
+      </div>
+      <div class="hero-media"><img src="../../assets/recommendation-system.webp" alt="Agentic recommendation system illustration"></div>
+    </header>
+
+    <div class="metric-strip">
+      <div class="metric"><strong>Request-level</strong><span class="lang" data-lang="en">trace reconstruction</span><span class="lang" data-lang="zh">请求级链路重建</span></div>
+      <div class="metric"><strong>4 stages</strong><span class="lang" data-lang="en">retrieval to reranking</span><span class="lang" data-lang="zh">召回至重排全链路</span></div>
+      <div class="metric"><strong>Constrained</strong><span class="lang" data-lang="en">safe production changes</span><span class="lang" data-lang="zh">受约束生产变更</span></div>
+      <div class="metric"><strong>Replay → A/B</strong><span class="lang" data-lang="en">progressive validation</span><span class="lang" data-lang="zh">逐级实验验证</span></div>
+    </div>
+
+    <div class="content-layout">
+      <article class="article">
+        <section id="problem">
+          <h2><span class="lang" data-lang="en">Recommendation iteration problem</span><span class="lang" data-lang="zh">推荐迭代问题</span></h2>
+          <p class="section-lede lang" data-lang="en">Recommendation regressions and growth opportunities often require experts to manually join aggregate metrics, request traces, candidate sources, feature values, model scores, and experiment history. The process is expensive and difficult to reuse.</p>
+          <p class="section-lede lang" data-lang="zh">推荐回退和增长机会通常需要专家人工拼接大盘指标、请求 Trace、候选来源、特征、模型分数与实验历史，分析成本高且经验难以复用。</p>
+          <div class="overview-grid"><div class="info-card"><h3><span class="lang" data-lang="en">Deep causal chain</span><span class="lang" data-lang="zh">因果链路深</span></h3><p class="lang" data-lang="en">A final exposure can be affected by candidate generation, feature freshness, multiple model stages, score fusion, and business reranking.</p><p class="lang" data-lang="zh">最终曝光可能受到候选生成、特征新鲜度、多级模型、分数融合和业务重排共同影响。</p></div><div class="info-card"><h3><span class="lang" data-lang="en">Multi-objective risk</span><span class="lang" data-lang="zh">多目标风险</span></h3><p class="lang" data-lang="en">A local CTR gain may hurt diversity, freshness, marketplace supply, revenue, latency, or long-term user experience.</p><p class="lang" data-lang="zh">局部点击提升可能损害多样性、新鲜度、供给生态、营收、延迟或长期用户体验。</p></div></div>
+        </section>
+
+        <section id="architecture">
+          <h2><span class="lang" data-lang="en">Self-improving recommendation loop</span><span class="lang" data-lang="zh">自迭代推荐闭环</span></h2>
+          <div class="architecture"><div class="flow">
+            <div class="flow-step"><strong><span class="lang" data-lang="en">Observe</span><span class="lang" data-lang="zh">观测</span></strong><span><span class="lang" data-lang="en">Impression, click, read, contact, revenue, latency, diversity</span><span class="lang" data-lang="zh">曝光、点击、阅读、联系、营收、延迟、多样性</span></span></div>
+            <div class="flow-step"><strong><span class="lang" data-lang="en">Diagnose</span><span class="lang" data-lang="zh">诊断</span></strong><span><span class="lang" data-lang="en">Reconstruct retrieval, features, scores, and reranking by request</span><span class="lang" data-lang="zh">按请求重建召回、特征、分数与重排链路</span></span></div>
+            <div class="flow-step"><strong><span class="lang" data-lang="en">Develop safely</span><span class="lang" data-lang="zh">受控开发</span></strong><span><span class="lang" data-lang="en">Constrained source weights, routing, switches, fusion, and rules</span><span class="lang" data-lang="zh">受约束召回权重、路由、开关、融合与规则</span></span></div>
+            <div class="flow-step"><strong><span class="lang" data-lang="en">Experiment &amp; remember</span><span class="lang" data-lang="zh">实验与记忆</span></strong><span><span class="lang" data-lang="en">Replay, shadow, canary, A/B, evaluation, and experiment memory</span><span class="lang" data-lang="zh">Replay、Shadow、Canary、A/B、评估与知识记忆</span></span></div>
+          </div></div>
+        </section>
+
+        <section id="solution">
+          <h2><span class="lang" data-lang="en">Technical design</span><span class="lang" data-lang="zh">核心技术设计</span></h2>
+          <div class="solution-grid">
+            <div class="solution-card"><span class="number">01</span><h3><span class="lang" data-lang="en">Unified metrics and traces</span><span class="lang" data-lang="zh">统一指标与 Trace</span></h3><p class="lang" data-lang="en">Joins impression, click, read, contact, revenue, and ecosystem metrics with request-level traces. request_id, user_id, and ad_id reconstruct candidate sources, features, scores, and reranking decisions.</p><p class="lang" data-lang="zh">打通 impression、click、read、contact、revenue 与生态指标，通过 request_id/user_id/ad_id 重建候选来源、特征、模型分数及重排决策。</p></div>
+            <div class="solution-card"><span class="number">02</span><h3><span class="lang" data-lang="en">Recommendation Agent roles</span><span class="lang" data-lang="zh">推荐 Agent 角色</span></h3><p class="lang" data-lang="en">Metric &amp; Trace, Insight &amp; Hypothesis, Retrieval/Ranking Development, Guardrail, Experiment, and Evaluation &amp; Learning Agents transform evidence into executable hypotheses.</p><p class="lang" data-lang="zh">Metric &amp; Trace、Insight &amp; Hypothesis、Retrieval/Ranking Development、Guardrail、Experiment、Evaluation &amp; Learning 多 Agent 将证据转化为可执行假设。</p></div>
+            <div class="solution-card"><span class="number">03</span><h3><span class="lang" data-lang="en">Constrained change surface</span><span class="lang" data-lang="zh">受约束变更面</span></h3><p class="lang" data-lang="en">Allows only versioned modifications to retrieval sources and weights, embeddings and model routing, feature switches, score fusion, and reranking rules—with snapshots and rollback.</p><p class="lang" data-lang="zh">仅允许对召回源与权重、Embedding/模型路由、特征开关、分数融合和重排规则进行版本化修改，并绑定快照与回滚。</p></div>
+            <div class="solution-card"><span class="number">04</span><h3><span class="lang" data-lang="en">Counterfactual replay and guardrails</span><span class="lang" data-lang="zh">反事实回放与护栏</span></h3><p class="lang" data-lang="en">Replays historical requests and candidate sets to estimate multi-objective impact before shadow and canary rollout, with constraints on quality, diversity, freshness, latency, revenue, and marketplace health.</p><p class="lang" data-lang="zh">在 Shadow 和 Canary 前回放历史请求及候选集，评估质量、多样性、新鲜度、延迟、营收与平台生态等多目标影响。</p></div>
+          </div>
+        </section>
+
+        <section id="listing-synergy">
+          <h2><span class="lang" data-lang="en">Closed loop with AI Listing</span><span class="lang" data-lang="zh">与 AI 发布形成闭环</span></h2>
+          <ul class="lang" data-lang="en"><li>Uses AI Listing categories, structured attributes, and multimodal representations to improve cold-start and long-tail item understanding.</li><li>Feeds recommendation exposure and engagement patterns back into listing-quality diagnosis and hypothesis generation.</li><li>Reuses category knowledge graphs, embeddings, schema versions, and model-routing infrastructure across listing and recommendation.</li></ul>
+          <ul class="lang" data-lang="zh"><li>利用 AI 发布产出的类目、结构化属性和多模态表征，改善冷启动与长尾商品理解。</li><li>将推荐曝光与互动模式反哺发布质量诊断及假设生成。</li><li>在发布与推荐之间复用类目知识图谱、Embedding、Schema 版本和模型路由基础设施。</li></ul>
+        </section>
+
+        <section id="evaluation"><h2><span class="lang" data-lang="en">Evaluation and learning</span><span class="lang" data-lang="zh">实验评估与学习</span></h2><ul class="lang" data-lang="en"><li>Each hypothesis defines the target cohort, evidence, expected benefit, primary metrics, MDE, guardrails, and rollback conditions.</li><li>Validation follows offline replay → shadow → low-traffic canary → staged A/B rollout.</li><li>Successful and failed experiments, bad-case root causes, versions, and human review are stored as structured memory.</li><li>Historical similarity and prior negative outcomes influence future hypothesis ranking, reducing repeated mistakes.</li></ul><ul class="lang" data-lang="zh"><li>每个假设明确目标人群、问题证据、预期收益、核心指标、MDE、护栏和回滚条件。</li><li>验证遵循“离线 Replay → Shadow → 小流量 Canary → 分阶段 A/B 放量”。</li><li>成功与失败实验、Bad Case 根因、版本及人工审核结论沉淀为结构化知识记忆。</li><li>历史实验相似度和负向结论参与后续假设排序，减少重复试错。</li></ul></section>
+
+        <section id="value"><h2><span class="lang" data-lang="en">Project value</span><span class="lang" data-lang="zh">项目价值</span></h2><div class="role-box"><p class="lang" data-lang="en">Moves recommendation iteration from expert-driven manual investigation toward a safe, evidence-based semi-automated workflow. The system shortens diagnosis and experiment design, improves cold-start and long-tail understanding, and makes both positive and negative experiments reusable.</p><p class="lang" data-lang="zh">推动推荐迭代从专家人工排查升级为安全、证据驱动的半自动工作流，缩短问题定位和实验设计周期，改善冷启动与长尾理解，并让正负实验经验都可复用。</p></div></section>
+        <section id="stack"><h2><span class="lang" data-lang="en">Technical stack</span><span class="lang" data-lang="zh">技术栈</span></h2><div class="stack"><span>Python</span><span>Multi-Agent</span><span>Retrieval / Ranking / Reranking</span><span>Qwen3-VL Embedding</span><span>Milvus</span><span>BigQuery / SQL</span><span>Offline Replay</span><span>Canary</span><span>A/B Testing</span><span>Knowledge Memory</span></div></section>
+      </article>
+      <aside class="toc"><strong><span class="lang" data-lang="en">On this page</span><span class="lang" data-lang="zh">页面目录</span></strong><a href="#problem"><span class="lang" data-lang="en">Problem</span><span class="lang" data-lang="zh">迭代问题</span></a><a href="#architecture"><span class="lang" data-lang="en">Architecture</span><span class="lang" data-lang="zh">推荐闭环</span></a><a href="#solution"><span class="lang" data-lang="en">Technical design</span><span class="lang" data-lang="zh">技术设计</span></a><a href="#listing-synergy"><span class="lang" data-lang="en">Listing synergy</span><span class="lang" data-lang="zh">发布协同</span></a><a href="#value"><span class="lang" data-lang="en">Value</span><span class="lang" data-lang="zh">项目价值</span></a></aside>
+    </div>
+
+    <div class="next-projects"><a href="../ai-listing-agent/">← <span class="lang" data-lang="en">AI Listing Agent</span><span class="lang" data-lang="zh">AI 发布 Agent</span></a><a href="../douyin-live-recommendation/"><span class="lang" data-lang="en">Next: Douyin Live</span><span class="lang" data-lang="zh">下一项：抖音直播</span> →</a></div>
+    <footer><span>© 2026 Yejin Chen</span><a href="../../"><span class="lang" data-lang="en">Back to homepage</span><span class="lang" data-lang="zh">返回首页</span></a></footer>
+  </main>
+  <script src="../project.js"></script>
+</body>
+</html>

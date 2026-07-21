@@ -46,9 +46,9 @@
     a:hover { text-decoration: underline; text-underline-offset: 3px; }
     img { display: block; max-width: 100%; }
     button, a { -webkit-tap-highlight-color: transparent; }
-    .lang { display: none; }
+    .lang { display: none !important; }
     body[data-language="en"] .lang[data-lang="en"],
-    body[data-language="zh"] .lang[data-lang="zh"] { display: revert; }
+    body[data-language="zh"] .lang[data-lang="zh"] { display: revert !important; }
 
     .topbar {
       position: sticky;
@@ -244,9 +244,9 @@
       <div>
         <p class="eyebrow"><span class="lang" data-lang="en">Algorithm Architect · Applied AI</span><span class="lang" data-lang="zh">算法架构师 · 应用人工智能</span></p>
         <h1>Yejin Chen <span style="font-family:inherit;font-size:.64em;color:#596579;white-space:nowrap">陈烨锦</span></h1>
-        <p class="role"><span class="lang" data-lang="en">Recommendation Systems · Multimodal AI · Computer Vision</span><span class="lang" data-lang="zh">推荐系统 · 多模态人工智能 · 计算机视觉</span></p>
-        <p class="lede lang" data-lang="en">Algorithm architect with 10+ years of R&amp;D experience. I build end-to-end recommendation systems, combine multimodal content understanding with ranking, and turn applied AI into measurable product outcomes.</p>
-        <p class="lede lang" data-lang="zh">拥有10年以上算法研发经验，专注推荐系统、多模态内容理解与业务算法落地；具备召回、粗排、精排、重排全链路优化经验，并持续将AI能力转化为可量化的产品结果。</p>
+        <p class="role"><span class="lang" data-lang="en">Recommendation Systems · Multimodal AI · Agentic Systems</span><span class="lang" data-lang="zh">推荐系统 · 多模态大模型 · Agent系统</span></p>
+        <p class="lede lang" data-lang="en">Algorithm architect with 10+ years of R&amp;D experience. I build multimodal listing products, self-improving agents, and end-to-end recommendation systems that turn AI capability into measurable product outcomes.</p>
+        <p class="lede lang" data-lang="zh">拥有10年以上算法研发经验，聚焦推荐系统、多模态大模型与Agent化业务落地；现负责Gumtree AI智能发布、自迭代Agent及基于Agent的推荐系统研发。</p>
         <div class="contact">
           <a href="mailto:hillox@qq.com" aria-label="Email hillox@qq.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg>hillox@qq.com
@@ -267,8 +267,8 @@
 
     <div class="metrics" aria-label="Career highlights">
       <div class="metric"><strong>10+</strong><span class="lang" data-lang="en">years in algorithm R&amp;D</span><span class="lang" data-lang="zh">年算法研发经验</span></div>
-      <div class="metric"><strong>+8%+</strong><span class="lang" data-lang="en">Gumtree read/impr uplift</span><span class="lang" data-lang="zh">Gumtree read/impr提升</span></div>
-      <div class="metric"><strong>6.8→1.5</strong><span class="lang" data-lang="en">minutes per listing</span><span class="lang" data-lang="zh">分钟，用户发布耗时</span></div>
+      <div class="metric"><strong>+3.8%</strong><span class="lang" data-lang="en">new listing posts per user</span><span class="lang" data-lang="zh">用户新发帖数</span></div>
+      <div class="metric"><strong>+3.2%</strong><span class="lang" data-lang="en">onsite revenue per user</span><span class="lang" data-lang="zh">用户站内营收</span></div>
       <div class="metric"><strong>99.99%</strong><span class="lang" data-lang="en">retinal ReID accuracy</span><span class="lang" data-lang="zh">眼底ReID识别准确率</span></div>
     </div>
 
@@ -282,8 +282,8 @@
         <article class="job">
           <div class="period">2024.04 — <span class="lang" data-lang="en">Present</span><span class="lang" data-lang="zh">至今</span></div>
           <div><h3><span class="lang" data-lang="en">Algorithm Architect</span><span class="lang" data-lang="zh">算法架构师</span> <span class="company">· 58.com / 58同城</span></h3>
-            <ul class="lang" data-lang="en"><li>Lead recommendation algorithms for overseas marketplaces and the migration from strategy-driven to model-driven architecture.</li><li>Own recommendation-system reconstruction and AI-assisted listing for Gumtree.com and OK.com.</li></ul>
-            <ul class="lang" data-lang="zh"><li>负责海外业务推荐算法，推动推荐系统从策略驱动升级为模型驱动架构。</li><li>主导Gumtree.com推荐系统重构及Gumtree、OK.com AI发布算法研发。</li></ul>
+            <ul class="lang" data-lang="en"><li>Built Gumtree's multimodal AI listing platform for category, attribute, copy, price, and parcel prediction; increased new listing posts per user by 3.8%, new-lister success by 1.5%, and onsite revenue per user by 3.2%.</li><li>Designed an explainable self-improving AI Listing Agent connecting metrics, traces, user edits, bad cases, guardrails, and experiments into a continuous optimization loop.</li><li>Extended the self-improving Agent pattern to recommendation, covering trace diagnosis, constrained retrieval/ranking changes, offline replay, canary rollout, and experiment memory.</li></ul>
+            <ul class="lang" data-lang="zh"><li>建设Gumtree多模态AI智能发布平台，覆盖类目、属性、文案、价格及包裹预测；用户新发帖数提升3.8%，新发帖用户成功率提升1.5%，用户站内营收提升3.2%。</li><li>设计可解释的AI发布自迭代Agent，连接指标、Trace、用户编辑、Bad Case、实验护栏和知识记忆，形成持续优化闭环。</li><li>将自迭代Agent扩展至推荐系统，覆盖链路诊断、受约束召回/排序变更、离线Replay、Canary放量及实验知识沉淀。</li></ul>
           </div>
         </article>
         <article class="job">
@@ -318,14 +318,36 @@
       </div>
       <div class="project-list">
         <article class="project">
-          <div class="project-media"><img src="assets/recommendation-system.webp" loading="lazy" alt="Multimodal marketplace recommendation system illustration"></div>
+          <div class="project-media"><img src="assets/recommendation-system.webp" loading="lazy" alt="Multimodal AI listing platform illustration"></div>
           <div class="project-body">
-            <p class="project-kicker">Recommendation · Multimodal</p>
-            <h3><span class="lang" data-lang="en">Gumtree recommendation rebuild &amp; AI-assisted listing</span><span class="lang" data-lang="zh">Gumtree推荐系统重构与AI发布</span></h3>
-            <p class="lang" data-lang="en">Rebuilt a strategy-driven recommender into a modular retrieval–pre-ranking–ranking system. Iterated DeepFM features and models; built multimodal category/attribute prediction plus title and description generation.</p>
-            <p class="lang" data-lang="zh">将策略驱动推荐重构为召回、粗排、精排的模块化系统；基于DeepFM持续迭代特征与模型，并构建多模态类目/属性预测及标题、描述生成能力。</p>
-            <div class="tags"><span class="tag">DeepFM</span><span class="tag">Multimodal AI</span><span class="tag result">read/impr +8%+</span><span class="tag result"><span class="lang" data-lang="en">listing success +15%</span><span class="lang" data-lang="zh">发布成功率 +15%</span></span></div>
-            <a class="project-link" href="projects/gumtree-recommendation/"><span class="lang" data-lang="en">View project details →</span><span class="lang" data-lang="zh">查看项目详情 →</span></a>
+            <p class="project-kicker">Multimodal AI · Marketplace</p>
+            <h3><span class="lang" data-lang="en">Gumtree AI intelligent listing platform</span><span class="lang" data-lang="zh">Gumtree AI智能发布平台</span></h3>
+            <p class="lang" data-lang="en">A one-stop multimodal listing system for category, structured attributes, title and description, market price, and parcel size/weight prediction.</p>
+            <p class="lang" data-lang="zh">面向二手非标商品的一站式多模态发布系统，自动完成类目、属性、文案、市场价格及包裹尺寸/重量预测。</p>
+            <div class="tags"><span class="tag">SigLIP</span><span class="tag">Gemini</span><span class="tag">Milvus</span><span class="tag result">Posts/User +3.8%</span><span class="tag result">Revenue/User +3.2%</span></div>
+            <a class="project-link" href="projects/ai-listing-platform/"><span class="lang" data-lang="en">View project details →</span><span class="lang" data-lang="zh">查看项目详情 →</span></a>
+          </div>
+        </article>
+        <article class="project">
+          <div class="project-media"><img src="assets/recommendation-system.webp" loading="lazy" alt="Self-improving AI listing agent illustration"></div>
+          <div class="project-body">
+            <p class="project-kicker">Multi-Agent · Continuous Learning</p>
+            <h3><span class="lang" data-lang="en">AI Listing self-improving Agent</span><span class="lang" data-lang="zh">AI发布自迭代Agent</span></h3>
+            <p class="lang" data-lang="en">An explainable multi-agent workflow connecting metrics, traces, user edits, bad cases, constrained changes, replay, canary rollout, and experiment memory.</p>
+            <p class="lang" data-lang="zh">连接指标、Trace、用户编辑、Bad Case、受控变更、离线回放、Canary及实验知识记忆的可解释多Agent闭环。</p>
+            <div class="tags"><span class="tag">Multi-Agent</span><span class="tag">Offline Replay</span><span class="tag">Guardrails</span><span class="tag">Knowledge Memory</span></div>
+            <a class="project-link" href="projects/ai-listing-agent/"><span class="lang" data-lang="en">View project details →</span><span class="lang" data-lang="zh">查看项目详情 →</span></a>
+          </div>
+        </article>
+        <article class="project">
+          <div class="project-media"><img src="assets/recommendation-system.webp" loading="lazy" alt="Agentic recommendation system illustration"></div>
+          <div class="project-body">
+            <p class="project-kicker">Agentic Recommendation · Experimentation</p>
+            <h3><span class="lang" data-lang="en">Recommendation system powered by a self-improving Agent</span><span class="lang" data-lang="zh">基于自迭代Agent的推荐系统</span></h3>
+            <p class="lang" data-lang="en">A semi-automated recommendation evolution loop spanning request-level diagnosis, constrained retrieval/ranking changes, replay, guardrails, and staged experiments.</p>
+            <p class="lang" data-lang="zh">覆盖请求级诊断、受约束召回/排序变更、离线Replay、实验护栏与分阶段放量的半自动推荐演进闭环。</p>
+            <div class="tags"><span class="tag">Trace Analysis</span><span class="tag">Retrieval &amp; Ranking</span><span class="tag">Canary</span><span class="tag">A/B Testing</span></div>
+            <a class="project-link" href="projects/agentic-recommendation/"><span class="lang" data-lang="en">View project details →</span><span class="lang" data-lang="zh">查看项目详情 →</span></a>
           </div>
         </article>
         <article class="project">

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Case study: explainable self-improving Agent for an AI listing system.">
+  <meta name="theme-color" content="#f7f8fb">
+  <title>AI Listing Self-improving Agent · Yejin Chen</title>
+  <link rel="stylesheet" href="../project.css">
+</head>
+<body data-language="en" data-title-en="AI Listing Self-improving Agent · Yejin Chen" data-title-zh="AI 发布自迭代 Agent · 陈烨锦">
+  <nav class="topbar" aria-label="Primary navigation"><div class="nav"><a class="brand" href="../../">Yejin Chen</a><div class="navlinks"><a href="../"><span class="lang" data-lang="en">All projects</span><span class="lang" data-lang="zh">全部项目</span></a><a href="../gumtree-recommendation/">Gumtree</a><button class="lang-toggle" id="langToggle" type="button">中文</button></div></div></nav>
+
+  <main>
+    <div class="breadcrumb"><a href="../../"><span class="lang" data-lang="en">Home</span><span class="lang" data-lang="zh">首页</span></a><span>/</span><a href="../"><span class="lang" data-lang="en">Projects</span><span class="lang" data-lang="zh">项目</span></a><span>/</span><span class="lang" data-lang="en">Self-improving Agent</span><span class="lang" data-lang="zh">自迭代 Agent</span></div>
+    <header class="project-hero">
+      <div>
+        <p class="kicker">Multi-Agent · Continuous Optimization · 2025—Present</p>
+        <h1><span class="lang" data-lang="en">AI Listing self-improving Agent</span><span class="lang" data-lang="zh">AI 发布自迭代 Agent</span></h1>
+        <p class="summary lang" data-lang="en">An explainable prototype that connects online metrics, user edits, failed listings, model traces, and experiment results into an observe–diagnose–hypothesize–validate–experiment–learn loop.</p>
+        <p class="summary lang" data-lang="zh">针对 AI 发布依赖产品、数据和算法团队人工分析与迭代、问题定位周期长的痛点，构建“观测—诊断—假设—验证—实验—学习”的可解释持续优化闭环。</p>
+        <div class="hero-tags"><span class="tag">Multi-Agent</span><span class="tag">Trace Analysis</span><span class="tag">Offline Replay</span><span class="tag">Guardrails</span><span class="tag">Knowledge Memory</span></div>
+      </div>
+      <div class="hero-media"><img src="../../assets/recommendation-system.webp" alt="Self-improving AI listing agent illustration"></div>
+    </header>
+
+    <div class="metric-strip">
+      <div class="metric"><strong>Trace-level</strong><span class="lang" data-lang="en">end-to-end listing reconstruction</span><span class="lang" data-lang="zh">端到端发布链路重建</span></div>
+      <div class="metric"><strong>6 roles</strong><span class="lang" data-lang="en">cooperating Agent workflow</span><span class="lang" data-lang="zh">多 Agent 协作角色</span></div>
+      <div class="metric"><strong>Replay → Canary</strong><span class="lang" data-lang="en">staged validation</span><span class="lang" data-lang="zh">分阶段验证机制</span></div>
+      <div class="metric"><strong>Multi-objective</strong><span class="lang" data-lang="en">quality, latency, safety, and cost</span><span class="lang" data-lang="zh">质量、延迟、安全与成本</span></div>
+    </div>
+
+    <div class="content-layout">
+      <article class="article">
+        <section id="problem">
+          <h2><span class="lang" data-lang="en">Why a self-improving Agent</span><span class="lang" data-lang="zh">为什么需要自迭代 Agent</span></h2>
+          <p class="section-lede lang" data-lang="en">Traditional iteration depended on multiple teams manually joining dashboards, traces, edited content, bad cases, and experiment history. Diagnosis and experiment design were slow, inconsistent, and difficult to audit.</p>
+          <p class="section-lede lang" data-lang="zh">传统迭代依赖多个团队人工拼接看板、调用链、用户修改、Bad Case 与历史实验，导致问题发现、根因定位和方案设计周期长，且难以审计与复现。</p>
+          <div class="overview-grid"><div class="info-card"><h3><span class="lang" data-lang="en">Fragmented evidence</span><span class="lang" data-lang="zh">证据分散</span></h3><p class="lang" data-lang="en">Funnel metrics, generated output, edits, error codes, and revenue data lived in different systems.</p><p class="lang" data-lang="zh">发布漏斗、生成结果、用户编辑、错误码和营收数据分布在不同系统。</p></div><div class="info-card"><h3><span class="lang" data-lang="en">Unsafe autonomy</span><span class="lang" data-lang="zh">自主修改风险</span></h3><p class="lang" data-lang="en">An autonomous Agent cannot be allowed to modify production behavior without explicit scope, versioning, guardrails, and rollback.</p><p class="lang" data-lang="zh">自主 Agent 不能在缺乏范围约束、版本管理、实验护栏和回滚机制时直接修改生产系统。</p></div></div>
+        </section>
+
+        <section id="loop">
+          <h2><span class="lang" data-lang="en">Continuous optimization loop</span><span class="lang" data-lang="zh">持续优化闭环</span></h2>
+          <div class="architecture"><div class="flow">
+            <div class="flow-step"><strong><span class="lang" data-lang="en">Observe</span><span class="lang" data-lang="zh">观测</span></strong><span><span class="lang" data-lang="en">Metrics, traces, edits, failures, model calls, experiments</span><span class="lang" data-lang="zh">指标、Trace、编辑、失败 Case、模型调用、实验</span></span></div>
+            <div class="flow-step"><strong><span class="lang" data-lang="en">Diagnose &amp; hypothesize</span><span class="lang" data-lang="zh">诊断与假设</span></strong><span><span class="lang" data-lang="en">Evidence-backed root cause and prioritized hypothesis</span><span class="lang" data-lang="zh">证据驱动根因与优先级假设</span></span></div>
+            <div class="flow-step"><strong><span class="lang" data-lang="en">Validate &amp; release</span><span class="lang" data-lang="zh">验证与发布</span></strong><span><span class="lang" data-lang="en">Replay, schema and safety checks, shadow, canary</span><span class="lang" data-lang="zh">回放、Schema/安全校验、Shadow、Canary</span></span></div>
+            <div class="flow-step"><strong><span class="lang" data-lang="en">Experiment &amp; learn</span><span class="lang" data-lang="zh">实验与学习</span></strong><span><span class="lang" data-lang="en">A/B decision, rollback, and reusable experiment memory</span><span class="lang" data-lang="zh">A/B 决策、回滚与实验知识记忆</span></span></div>
+          </div></div>
+        </section>
+
+        <section id="agents">
+          <h2><span class="lang" data-lang="en">Multi-Agent architecture</span><span class="lang" data-lang="zh">多 Agent 协作架构</span></h2>
+          <div class="solution-grid">
+            <div class="solution-card"><span class="number">01</span><h3>Metric &amp; Trace</h3><p class="lang" data-lang="en">Unifies Entry UV, Post per UV, listing success, category-level quality, errors, edits, and revenue. Reconstructs requests through ad_id, request_id, and user_id.</p><p class="lang" data-lang="zh">统一 Entry UV、Post per UV、发布成功率、分类目质量、错误、编辑和营收口径，并通过 ad_id/request_id/user_id 重建完整链路。</p></div>
+            <div class="solution-card"><span class="number">02</span><h3>Insight &amp; Hypothesis</h3><p class="lang" data-lang="en">Turns anomalies and bad cases into structured hypotheses with target cohort, evidence, change scope, expected value, MDE, and rollback conditions.</p><p class="lang" data-lang="zh">将异常与 Bad Case 转化为结构化假设，明确目标人群、证据、修改范围、预期收益、MDE 和回滚条件。</p></div>
+            <div class="solution-card"><span class="number">03</span><h3>Development &amp; Guardrail</h3><p class="lang" data-lang="en">Limits changes to versioned prompts, category candidates, attribute schemas, model routing, post-processing, and fallbacks, then runs replay, schema, safety, and hallucination checks.</p><p class="lang" data-lang="zh">将修改限制在版本化 Prompt、类目候选集、属性 Schema、模型路由、后处理与降级策略，并执行 Replay、Schema、安全及幻觉检查。</p></div>
+            <div class="solution-card"><span class="number">04</span><h3>Experiment &amp; Learning</h3><p class="lang" data-lang="en">Designs staged experiments and evaluates conversion, content quality, violation rate, P95 latency, and token cost before storing the outcome as reusable memory.</p><p class="lang" data-lang="zh">设计分阶段实验，联合评估转化、内容质量、违规率、P95 延迟和 Token 成本，并将结果沉淀为可复用记忆。</p></div>
+          </div>
+        </section>
+
+        <section id="safety"><h2><span class="lang" data-lang="en">Safety and reproducibility</span><span class="lang" data-lang="zh">安全性与可复现性</span></h2><ul class="lang" data-lang="en"><li>Every change binds model and prompt versions, category-tree snapshot, offline replay set, evaluation report, and rollback plan.</li><li>Release path follows offline validation → shadow → low-traffic canary → staged rollout.</li><li>Priority combines traffic scale, upside, implementation risk, and similarity to historical experiments.</li><li>Negative experiments and human review conclusions remain in memory so failed ideas still improve future decisions.</li></ul><ul class="lang" data-lang="zh"><li>每次变更绑定模型/Prompt 版本、类目树快照、离线回放集、评估报告和回滚方案。</li><li>发布路径遵循“离线验证 → Shadow → 小流量 Canary → 分阶段放量”。</li><li>综合流量规模、潜在收益、实现风险和历史实验相似度进行优先级排序。</li><li>失败实验与人工审核结论同样进入知识记忆，使负向结果参与后续假设生成。</li></ul></section>
+
+        <section id="value"><h2><span class="lang" data-lang="en">Project value</span><span class="lang" data-lang="zh">项目价值</span></h2><div class="role-box"><p class="lang" data-lang="en">Upgraded the AI listing system from manually driven point optimization to a data- and experiment-driven semi-automated evolution loop. The design shortens discovery, diagnosis, and experiment planning while preserving production stability through versioning, guardrails, and rollback.</p><p class="lang" data-lang="zh">将 AI 发布从“人工驱动的单点优化”升级为“数据与实验驱动的半自动持续进化”，缩短问题发现、根因定位和实验方案设计链路，并通过版本化、护栏和自动回滚保障线上稳定性。</p></div></section>
+        <section id="stack"><h2><span class="lang" data-lang="en">Technical stack</span><span class="lang" data-lang="zh">技术栈</span></h2><div class="stack"><span>Python</span><span>Multi-Agent</span><span>Gemini</span><span>BigQuery / SQL</span><span>Prompt Engineering</span><span>Offline Replay</span><span>A/B Testing</span><span>Knowledge Memory</span><span>Web Dashboard</span></div></section>
+      </article>
+      <aside class="toc"><strong><span class="lang" data-lang="en">On this page</span><span class="lang" data-lang="zh">页面目录</span></strong><a href="#problem"><span class="lang" data-lang="en">Problem</span><span class="lang" data-lang="zh">项目背景</span></a><a href="#loop"><span class="lang" data-lang="en">Optimization loop</span><span class="lang" data-lang="zh">优化闭环</span></a><a href="#agents"><span class="lang" data-lang="en">Agent architecture</span><span class="lang" data-lang="zh">Agent 架构</span></a><a href="#safety"><span class="lang" data-lang="en">Safety</span><span class="lang" data-lang="zh">安全护栏</span></a><a href="#value"><span class="lang" data-lang="en">Value</span><span class="lang" data-lang="zh">项目价值</span></a></aside>
+    </div>
+
+    <div class="next-projects"><a href="../ai-listing-platform/">← <span class="lang" data-lang="en">AI Listing platform</span><span class="lang" data-lang="zh">AI 智能发布</span></a><a href="../agentic-recommendation/"><span class="lang" data-lang="en">Next: Agentic recommendation</span><span class="lang" data-lang="zh">下一项：Agent 推荐系统</span> →</a></div>
+    <footer><span>© 2026 Yejin Chen</span><a href="../../"><span class="lang" data-lang="en">Back to homepage</span><span class="lang" data-lang="zh">返回首页</span></a></footer>
+  </main>
+  <script src="../project.js"></script>
+</body>
+</html>
